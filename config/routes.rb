@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#landing'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+
   resources :communities do
-    resources :messages
+    resources :message
   end
 
-  get 'landing_page', to: 'pages#search' do
-    get 'results', to: 'pages#result'
-  end
-
-  resources :profiles, only: [:index, :show]
+  resources :profiles, only: [ :show ]
+  
+  get 'home', to: 'pages#home'
+  get 'results', to: 'pages#result'
+  
 end
