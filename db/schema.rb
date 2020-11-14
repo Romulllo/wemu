@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_11_14_151751) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_14_151751) do
     t.bigint "user_id", null: false
     t.string "name"
     t.text "description"
+    t.string "Title"
     t.index ["user_id"], name: "index_communities_on_user_id"
   end
 

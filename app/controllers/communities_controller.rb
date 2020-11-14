@@ -17,7 +17,11 @@ class CommunitiesController < ApplicationController
   end
 
   def index
-    @communities = Community.all
+    if params[:query].present?
+      @communities = Community.where(title: params[:query])
+    else
+      @communities = Community.all
+    end
   end
 
   def show
@@ -49,5 +53,4 @@ class CommunitiesController < ApplicationController
   def community_params
     params.require(:community).permit(:name, :description)
   end
-
 end
