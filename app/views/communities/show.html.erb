@@ -1,0 +1,19 @@
+
+<h1>Welcome to this community</h1>
+
+<h2><%=@community.name %></h2>
+  <% @community.messages.each do |message|%>
+    <%= message.content %>
+  <% end  %>
+
+<div class="container">
+  <div class="row justify-content-center">
+      <h1>Please, add your message to interact here! <%= @community.name %></h1>
+
+      <%= simple_form_for [@community, @message] do |f| %>
+        <%= f.input :content %>
+        <%= f.submit "Post", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
