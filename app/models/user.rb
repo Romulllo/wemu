@@ -7,8 +7,8 @@ class User < ApplicationRecord
  
   has_many :memberships
   has_many :messages
-  has_many :communities, through: :memberships
   has_many :communities
+  has_many :communities, through: :memberships
 
   def self.find_for_oauth(auth)
     user_params = auth.slice("provider", "uid")

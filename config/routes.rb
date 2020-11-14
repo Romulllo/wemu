@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
 
   resources :communities do
-    resources :message
+    resources :messages
   end
 
   resources :profiles, only: [ :show ]
-  
-  get 'home', to: 'pages#home'
+
+  get 'landing', to: 'pages#landing'
   get 'results', to: 'pages#result'
-  
+
 end
