@@ -3,14 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  devise :omniauthable, omniauth_providers: [:facebook]
-
+  devise :omniauthable, omniauth_providers: [:facebook, :spotify]
+ 
   has_many :memberships
   has_many :messages
   has_many :communities, through: :memberships
   has_many :communities
 
-  def self.find_for_facebook_oauth(auth)
+  def self.find_for_oauth(auth)
     user_params = auth.slice("provider", "uid")
     user_params.merge! auth.info.slice("email", "first_name", "last_name")
     user_params[:facebook_picture_url] = auth.info.image
