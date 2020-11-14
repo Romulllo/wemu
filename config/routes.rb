@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'wemu#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: 'pages#landing'
+
+  resources :communities do
+    resources :message
+  end
+
+  resources :profiles, only: [ :show ]
+  
+  get 'home', to: 'pages#home'
+  get 'results', to: 'pages#result'
+  
 end
