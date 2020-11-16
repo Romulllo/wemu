@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 2020_11_14_151751) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "facebook_picture_url"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "token"
+    t.datetime "token_expiry"
     t.integer "age"
     t.string "name"
     t.string "top_artists", default: [], array: true
