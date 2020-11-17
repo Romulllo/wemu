@@ -17,6 +17,8 @@ Devise.setup do |config|
 
   config.omniauth :spotify, ENV["SPOT_ID"], ENV["SPOT_SECRET"],
     scope: %w(
+    user-top-read
+    user-read-recently-played
     playlist-read-private
     user-read-private
     user-read-email
