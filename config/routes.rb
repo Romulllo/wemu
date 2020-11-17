@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [ :show ]
 
+  get 'home',    to: 'pages#home'
   get 'landing', to: 'pages#landing'
   get 'results', to: 'pages#result'
 
