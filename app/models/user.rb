@@ -18,18 +18,20 @@ class User < ApplicationRecord
     user_params[:spotify_picture_url] = auth.info.image
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
+    time = Time.now.getutc
 
-    # require "json"
-    # require "rest-client"
+    response = RestClient.get('https://api.spotify.com/v1/me/player/recently-played?limit=10', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    spotify_response    = JSON.parse(response)
+    spotify_top_artists = []
+    spotify_top_songs   = []
 
-    # response = RestClient.get("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
-    # repos = JSON.parse(response)
+    spotify_response['items'].each do |item|
+      spotify_top_artists << item['track']['album']['artists'][0]['name']
+      spotify_top_songs << item['track']['name']
+    end
 
-    # repos['drinks'].each do |repo|
-    #   ingredient = repo['strIngredient1']
-    #   Ingredient.create!(name: ingredient)
-    # end
-
+    user_params[:top_artists] = spotify_top_artists
+    user_params[:top_songs] = spotify_top_songs
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
