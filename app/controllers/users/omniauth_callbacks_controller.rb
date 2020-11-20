@@ -22,5 +22,4 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to landing_path
     end
   end
-
 end
