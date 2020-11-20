@@ -10,16 +10,18 @@
 }
 
 .banner-content {
+  padding: 3cm;
   width: 60%;
 }
 
 .banner h1 {
   text-transform: none;
-  font-size: 60px;
+  font-size: 280px;
   font-weight: 500;
   font-variant: small-caps;
   line-height: 70px;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 180px;
 }
 .banner p {
   font-size: 25px;
@@ -37,29 +39,6 @@
   color: text-dark;
 }
 
-.inline_field_wrapper {
-  display: inline-block;
-}
-
-.form-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  div {
-    flex: 1 1 auto;
-    margin: 5px;
-  }
-}
-
-.form-control-label {
-  color: text-dark;
-  font-size: 14px;
-}
-
-input:disabled {
-  cursor: not-allowed !important;
-}
-
 .form-search {
   display: flex;
   flex-direction: row;
@@ -68,5 +47,7 @@ input:disabled {
     color: text-dark;
     background: #f4f4f4;
     flex: 1;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
 }
