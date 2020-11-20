@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :landing ]
 
   def home
+    @community = Community.where(name: params[:query])
   end
 
   def landing
