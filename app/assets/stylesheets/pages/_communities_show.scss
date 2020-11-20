@@ -1,0 +1,19 @@
+/* Embed google fonts for demo layout
+-----------------------------------------*/
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900');
+
+
+/* Main Page Layout
+-- NOTE: Just for the demo page, and not
+required for the video modal... Video Modal
+styles are down below --
+-----------------------------------------*/
+
+.col-6 {
+  background-color: $background;
+
+}
+
+.col-6 h1,h3 {
+  color: $main-colors
+}
