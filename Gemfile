@@ -30,7 +30,7 @@ gem 'redis', '~> 4.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'rest-client', '~> 2.0.2'
 gem 'mini_racer'
 gem 'devise'
 gem 'pg_search', '~> 2.3', '>= 2.3.5'
