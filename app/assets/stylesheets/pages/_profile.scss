@@ -1,0 +1,38 @@
+body {
+  background-color: #557571;
+  background-size: cover;
+}
+
+.card {
+  background-color: #557571 !important;
+  color: #d49a89;
+  font-size: 20px;
+  font-weight: lighter;
+  width: 50%;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}

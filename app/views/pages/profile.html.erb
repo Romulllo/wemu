@@ -1,33 +1,46 @@
 <div class="container">
-	<div class ="avatar-profile">
-	  <% avatar_url = current_user.spotify_picture_url || "http://placehold.it/30x30" %>  
-	  <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-	</div>
+  <div class="components">  
 
-	<div class="card card-artists">
-		<h1 class="title">Artists:: Last 20 Listened...</h1>
-		<% @repos['items'].each do |x| %>
-			<ul class="list">
-				<li><%= x['track']['album']['artists'][0]['name'] %></li> 
-			</ul>
-		<% end %>
-	</div>
-
-	<div class="card card-artists">
-		<h1>Albumns:: Last 20 Listened...</h1>
-		<% @repos['items'].each do |x| %>
-		<%= image_tag x['track']['album']['images'][0]['url'] %>
-		<% end %>
-	</div>
-</div>
-
-<!-- 
-
-<div class="row">
-  <% @repos['items'].each do |x| %>
-  <div class="col-3">
-     <div class="card card-artists m-1 align-text-bottom" style="background-image: url(<%= image_tag x['track']['album']['images'][0]['url'] %>);">
+    <div class="row">
+      <div class="col-6">
+        <div class="card mb-1 shadow-sm w-30 align-items-center">  
+        	<div class ="avatar-profile">
+        	  <% avatar_url = current_user.spotify_picture_url %> 
+        	  <%= image_tag avatar_url %>
+          </div>
+        </div>
       </div>
+      <div class="col-6">
+        <div class="card mb-1 shadow-sm w-100"> 
+          <div class ="profile-description">
+            <h3> User: <%= current_user.first_name %><h3> 
+            <h3> Nickname: <%= current_user.nickname %><h3>       
+          </div>
+        </div>
+      </div>
+    </div>	
+
+    <div class="row">
+      <div class="col-6">
+        <div class="card mb-1 shadow-sm w-100 align-items-center">  
+        	<h2 class="title">Top 10 Artists</h2>
+              <ol class="list">
+                <% current_user.top_artists.each do |artist| %>
+                  <li><strong><%= artist %></strong></li>
+                <% end %>
+              </ol>  
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card mb-1 shadow-sm w-100 align-items-center">  
+          <h2 class="title">Top 10 Musics</h2>
+              <ol class="list">
+                <% current_user.top_songs.each do |song| %>
+                  <li><strong><%= song %></strong></li>
+                <% end %>
+              </ol>  
+        </div>
+      </div>       
+    </div>
   </div>
-  <% end %>
-</div> -->
+</div>
