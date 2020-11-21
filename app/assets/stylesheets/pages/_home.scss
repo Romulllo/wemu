@@ -1,29 +1,32 @@
 .banner {
+  background-color: #557571;
   background-size: cover;
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
   height: 100vh;
-  color: #112d4e;
+  color: #d49a89;
 }
 
 .banner-content {
+  padding: 3cm;
   width: 60%;
 }
 
 .banner h1 {
   text-transform: none;
-  font-size: 60px;
+  font-size: 280px;
   font-weight: 500;
   font-variant: small-caps;
   line-height: 70px;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 180px;
 }
 .banner p {
   font-size: 25px;
   font-weight: lighter;
-  color: #112d4e;
+  color: #f7d1ba;
   margin-bottom: 30px;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
@@ -36,36 +39,15 @@
   color: text-dark;
 }
 
-.inline_field_wrapper {
-  display: inline-block;
-}
-
-.form-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  div {
-    flex: 1 1 auto;
-    margin: 5px;
-  }
-}
-
-.form-control-label {
-  color: text-dark;
-  font-size: 14px;
-}
-
-input:disabled {
-  cursor: not-allowed !important;
-}
-
 .form-search {
   display: flex;
   flex-direction: row;
   .search-input {
     padding: 20px;
     color: text-dark;
-    background: white;
+    background: #f4f4f4;
     flex: 1;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
   }
 }

@@ -3,8 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
 
+gem 'rspotify', '~> 2.6'
+gem 'rest-client',  '~> 2.0.2'
 gem 'omniauth-spotify'
-
 gem 'omniauth-facebook'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
@@ -24,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'rest-client', '~> 2.0', '>= 2.0.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
