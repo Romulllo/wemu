@@ -1,0 +1,53 @@
+main {
+  background-color: $wemu-green !important;
+}
+
+.album {
+  background-color: $wemu-green !important;
+}
+
+.jumbotron {
+  background-color: $wemu-green !important;
+  h1 {
+    color: $wemu-pink;
+    text-transform: none;
+    font-weight: 500;
+    font-variant: small-caps;
+    line-height: 70px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  }
+  p {
+    color: $wemu-light-pink;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.card-body {
+  background-color: $wemu-light-pink;
+
+  h2 {
+    color: $wemu-green;
+    font-variant: small-caps;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    color: $wemu-green;
+  }
+}
+
+.btn-outline-secondary {
+  font-weight: bold;
+  color: $wemu-green;
+  border-color: $wemu-green;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline-secondary:hover {
+  color: $wemu-white;
+  background-color: $wemu-green;
+  border-color: $wemu-green;
+}
