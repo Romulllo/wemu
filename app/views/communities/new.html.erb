@@ -1,7 +1,58 @@
-<h1> Page to add a new community </h1>
+<!-- <div class="bg-wemu-green">
+  <div class="container bg-green">
+    <div class="form-new-community mt-5">
+      <h1> Page to add a new community </h1>
 
-<%= simple_form_for @community do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+      <%= simple_form_for @community do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="new-form">
+  <div class="container">
+      <div class="form-login">
+        <h2>Create a new community!</h2>
+        <%= simple_form_for @community do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :photo, as: :file %>
+          </div>
+          <div class="form-actions">
+           <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div> -->
+
+
+<div class="container">
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Create your community!</h2>
+      <h4 class="animation a2">Please, take some time to choose an amazing name and also descripe what the community is about!</h4>
+    </div>
+    <div class="form">
+     <%= simple_form_for @community do |f| %>
+          <div class="form-inputs">
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :photo, as: :file %>
+          </div>
+          <div class="form-actions">
+           <%= f.button :submit, class: "animation a6" %>
+          </div>
+        <% end %>
+      <button class="animation a6">LOGIN</button>
+    </div>
+  </div>
+  <div class="right", style = "background-image: url(<%= image_path 'music_people' %>)" >
+  </div>
+</div>
