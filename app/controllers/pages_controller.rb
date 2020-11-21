@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :landing ]
 
-  def results
+  def result
     if params[:query].present?
-      @community = Community.where(name: params[:query])
+      @communities = Community.where(name: params[:query])
     else
-      @community = Community.all
+      @communities = Community.all
     end
   end
 

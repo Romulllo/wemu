@@ -17,11 +17,7 @@ class CommunitiesController < ApplicationController
   end
 
   def index
-    if params[:query].present?
-      @communities = Community.where(title: params[:query])
-    else
-      @communities = Community.all
-    end
+    @communities = Community.all
   end
 
   def show
