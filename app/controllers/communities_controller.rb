@@ -10,7 +10,7 @@ class CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     @community.user = current_user
     if @community.save
-      redirect_to community_path
+      redirect_to community_path(@community)
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class CommunitiesController < ApplicationController
 
   def update
     if @community.update(community_params)
-      redirect_to community_path
+      redirect_to community_path(@community)
     else
       render 'edit'
     end
@@ -47,6 +47,6 @@ class CommunitiesController < ApplicationController
   end
 
   def community_params
-    params.require(:community).permit(:name, :description)
+    params.require(:community).permit(:name, :description, :photo)
   end
 end

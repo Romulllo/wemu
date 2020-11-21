@@ -12,17 +12,17 @@ styles are down below --
   background-color: $wemu-green;
 }
 
-.col-6 h1,
-h3 {
+.col-6 h1,h3 {
   color: $wemu-pink;
+  font: $headers-font;
 }
 
 /* Chat containers */
 .container-messages {
   border: 2px solid #dedede;
-  background-color: #f1f1f1;
+  background-color: $wemu-white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
   margin: 10px 0;
 }
 
@@ -42,8 +42,18 @@ h3 {
 /* Style images */
 .container-messages img {
   float: left;
-  max-width: 60px;
+  max-width: 80px;
   width: 100%;
   margin-right: 20px;
   border-radius: 50%;
+}
+
+.container-messages p {
+  padding: 2px;
+  margin: 2px;
+}
+
+.time-right{
+  font-size: 12px;
+  padding-top: 5px;
 }
