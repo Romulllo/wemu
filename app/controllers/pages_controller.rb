@@ -13,10 +13,5 @@ class PagesController < ApplicationController
   end
 
   def profile
-    # if params[:query].present?
-    #   @profiles = Profile.where(name: params[:query])
-    # else
-    #   @profiles = Profile.all
-    # end
   end
 end

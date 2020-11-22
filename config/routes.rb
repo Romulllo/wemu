@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  resources :profiles, only: [ :show ]
+  # resources :profiles, only: [ :show ]
 
   get 'home',    to: 'pages#home'
   get 'landing', to: 'pages#landing'

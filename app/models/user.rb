@@ -21,17 +21,23 @@ class User < ApplicationRecord
     time = Time.now.getutc
 
     response = RestClient.get('https://api.spotify.com/v1/me/player/recently-played?limit=10', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
-    spotify_response    = JSON.parse(response)
-    spotify_top_artists = []
-    spotify_top_songs   = []
+    spotify_response = JSON.parse(response)
+    spotify_last_artists = []
+    spotify_last_songs   = []
+    spotify_last_albums  = []
+    spotify_link_albums  = []
 
     spotify_response['items'].each do |item|
-      spotify_top_artists << item['track']['album']['artists'][0]['name']
-      spotify_top_songs << item['track']['name']
+      spotify_last_artists << item['track']['album']['artists'][0]['name']
+      spotify_last_songs << item['track']['name']
+      spotify_last_albums << item ['track']['album']['images'][1]['url']
+      spotify_link_albums << item['track']['album']['external_urls']['spotify']
     end
 
-    user_params[:top_artists] = spotify_top_artists
-    user_params[:top_songs] = spotify_top_songs
+    user_params[:last_artists] = spotify_last_artists
+    user_params[:last_songs] = spotify_last_songs
+    user_params[:last_albums] = spotify_last_albums
+    user_params[:link_albums] = spotify_link_albums
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
