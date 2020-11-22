@@ -67,10 +67,12 @@
       <div class="mb-2 w-100">
         <h2 class="title ">Last 10 Albums</h2>
         <div class="row justify-content-md-center">
-          <% current_user.last_albums.each do |album| %>  
-            <div class="col-4 mb-2">         
-              <%= image_tag album %>
-            </div>    
+          <% current_user.last_albums.each_with_index do |album, index| %> 
+            <%= link_to current_user.link_albums[index] do %>
+              <div class="col-4 mb-2">         
+                <%= image_tag album %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>   
