@@ -4,7 +4,7 @@
       <div class="">  
       	<div class ="px-4 pt-0 pb-4">
           <div class="media align-items-end profile-head">
-            <div class="profile mr-3">
+            <div class="profile mr-3 rounded-circle z-depth-2">
               <% avatar_url = current_user.spotify_picture_url %> 
               <%= image_tag avatar_url %><!-- <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a> -->
             </div>
@@ -22,15 +22,15 @@
 
   <div class="p-4 d-flex justify-content-end text-center ">
     <ul class="list-inline mb-0">
-      <li class="list-inline-item">
+      <!-- <li class="list-inline-item">
           <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
-      </li>
+      </li> -->
       <li class="list-inline-item">
           <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
       </li>
-      <li class="list-inline-item">
+      <!-- <li class="list-inline-item">
           <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
-      </li>
+      </li> -->
     </ul>
   </div>
   <div class="px-4 py-3">
@@ -66,10 +66,10 @@
 
       <div class="mb-2 w-100">
         <h2 class="title ">Last 10 Albums</h2>
-        <div class="row justify-content-md-center">
+        <div class="row justify-content-md-center ">
           <% current_user.last_albums.each_with_index do |album, index| %> 
             <%= link_to current_user.link_albums[index] do %>
-              <div class="col-4 mb-2">         
+              <div class="col-4 mb-2 ">         
                 <%= image_tag album %>
               </div>
             <% end %>
