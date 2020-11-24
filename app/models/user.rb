@@ -39,20 +39,20 @@ class User < ApplicationRecord
       spotify_link_albums << item['track']['album']['external_urls']['spotify']
     end
 
-    spotify_response_1['countries'].each do |country|
-      spotify_countries << country
-    end
+    # spotify_response_1['country'].each do |x|
+    #   spotify_countries << x
+    # end
 
-    spotify_response_1['followers'].each do |follower|
-      spotify_followers << follower      
-    end
+    # spotify_response_1['followers'].each do |follower|
+    #   spotify_followers << follower     
+    # end
 
     user_params[:last_artists] = spotify_last_artists
     user_params[:last_songs] = spotify_last_songs
     user_params[:last_albums] = spotify_last_albums
     user_params[:link_albums] = spotify_link_albums
-    user_params[:countries] = spotify_countries
-    user_params[:followers] = spotify_followers
+    # user_params[:country] = spotify_countries
+    # user_params[:followers] = spotify_followers
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
