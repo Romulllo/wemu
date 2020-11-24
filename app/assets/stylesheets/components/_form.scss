@@ -25,10 +25,7 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
-// .container {
-//   display: flex;
-//   height: 100vh;
-// }
+
 
 .left {
   overflow: hidden;
@@ -36,10 +33,11 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  animation-name: left;
+  // animation-name: left;
   animation-duration: 1s;
   animation-fill-mode: both;
   animation-delay: 1s;
+  margin-right: 30px;
 }
 
 .right {
@@ -53,16 +51,18 @@ body {
 
 
 
-.header > h2 {
+.header > h1 {
   margin: 0;
   color: $wemu-light-pink;
+  font: $headers-font;
 }
 
-.header > h4 {
+.header > h3 {
   margin-top: 10px;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 20px;
   color: $wemu-light-pink;
+  font: $headers-font;
 }
 
 .form {
@@ -95,7 +95,11 @@ body {
   border-color: #0f7ef1;
 }
 
-.form > button {
+.cont{
+  margin:110px;
+}
+
+.button-final {
   padding: 12px 10px;
   border: 0;
   background: linear-gradient(to right, $wemu-light-pink 0%,$wemu-pink 100%);
