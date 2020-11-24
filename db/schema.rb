@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_21_150801) do
+ActiveRecord::Schema.define(version: 2020_11_24_230932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 2020_11_21_150801) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "age"
     t.string "name"
-    t.string "top_artists", default: [], array: true
-    t.string "top_songs", default: [], array: true
+    t.string "last_artists", default: [], array: true
+    t.string "last_songs", default: [], array: true
     t.string "provider"
     t.string "uid"
     t.string "spotify_picture_url"
@@ -84,6 +84,10 @@ ActiveRecord::Schema.define(version: 2020_11_21_150801) do
     t.string "token"
     t.datetime "token_expiry"
     t.string "nickname"
+    t.string "last_albums", default: [], array: true
+    t.string "link_albums", default: [], array: true
+    t.string "country", default: [], array: true
+    t.integer "followers", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
