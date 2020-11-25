@@ -16,12 +16,13 @@ class CommunitiesController < ApplicationController
     end
   end
 
-  def index
-    @communities = Community.all
-  end
+  # def index
+  #   @communities = Community.all
+  # end
 
   def show
     @message = Message.new
+    @membership = Membership.new
   end
 
   def edit

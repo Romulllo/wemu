@@ -8,11 +8,14 @@
     <div class="container mt-5 text-center">
         <h1><%=@community.name %></h1>
         <h3><em><%=@community.description %></em></h3>
+         <%= simple_form_for [@community, @membership] do |f| %>
+          <%= f.submit "Join this community!", class: 'btn btn-outline-success' %>
+        <% end %>
         <h3>Please, add your message to interact here! </h3>
         <%= simple_form_for [@community, @message] do |f| %>
     </div>
           <%= f.input :content, label: false %>
-          <%= f.submit "Post", class: 'btn btn-primary' %>
+          <%= f.submit "Post", class: 'btn btn-outline-success' %>
         <% end %>
         <% @community.messages.order(created_at: :desc).each do |message|%>
           <div class="container-messages">

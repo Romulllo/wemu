@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :communities do
     resources :messages
+    resources :memberships, only: [:create]
   end
 
   # resources :profiles, only: [ :show ]
