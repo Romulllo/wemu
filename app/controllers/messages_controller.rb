@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to community_path(@community)
     else
-      raise
       render 'communities/show'
     end
   end
