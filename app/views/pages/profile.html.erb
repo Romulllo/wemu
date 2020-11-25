@@ -1,85 +1,81 @@
-<div class="row py-5 px-4">
-  <div class="col-md-5 mx-auto">
-    <div class="">  
-    	<div class ="px-4 pt-0 pb-4">
-        <div class="media align-items-end profile-head">
-          <div class="profile mr-3">
-            <% avatar_url = current_user.spotify_picture_url %> 
-            <%= image_tag avatar_url %><a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
-          </div>
-          <div class="media-body mb-5">
-            <h4 class="mt-0 mb-0"><%= current_user.first_name %></h4>
-            <h4 class="mt-0 mb-0"><%= current_user.nickname %></h4>
-            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Niterói</p>
-          </div> 
-        </div>   
+<div class="container">
+  <div class="row py-5 px-4">
+    <div class="col-md-5 mx-auto">
+      <div class="">  
+      	<div class ="px-4 pt-0 pb-4">
+          <div class="media align-items-end profile-head">
+            <div class="profile mr-3 rounded-circle z-depth-2">
+              <% avatar_url = current_user.spotify_picture_url %> 
+              <%= image_tag avatar_url %><!-- <a href="#" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a> -->
+            </div>
+            <div class="media-body mb-5">
+              <h4 class="mt-0 mb-0"><%= current_user.first_name %></h4>
+              <h4 class="mt-0 mb-0"><%= current_user.nickname %></h4>
+              <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Niterói</p>
+            </div> 
+          </div>   
+        </div>
       </div>
     </div>
+  </div>	
+
+
+  <div class="p-4 d-flex justify-content-end text-center ">
+    <ul class="list-inline mb-0">
+      <!-- <li class="list-inline-item">
+          <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
+      </li> -->
+      <li class="list-inline-item">
+          <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+      </li>
+      <!-- <li class="list-inline-item">
+          <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
+      </li> -->
+    </ul>
   </div>
-</div>	
+  <div class="px-4 py-3">
+      <h5 class="mb-0">About</h5>
+      <div class="p-4 rounded shadow-sm">
+          <p class="font-italic mb-0">Beatles Lover</p>
+          <p class="font-italic mb-0">Would you like to meet people that share the same passion.</p>
+      </div>
+  </div>
 
-
-<div class="p-4 d-flex justify-content-end text-center ">
-  <ul class="list-inline mb-0">
-    <li class="list-inline-item">
-        <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Photos</small>
-    </li>
-    <li class="list-inline-item">
-        <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
-    </li>
-    <li class="list-inline-item">
-        <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
-    </li>
-  </ul>
-</div>
-<div class="px-4 py-3">
-    <h5 class="mb-0">About</h5>
-    <div class="p-4 rounded shadow-sm">
-        <p class="font-italic mb-0">Beatles Lover</p>
-        <p class="font-italic mb-0">Would you like to meet people that share the same passion.</p>
-    </div>
-</div>
-
-<div class="py-4 px-4">
-  <!-- <div class="d-flex align-items-center justify-content-between mb-3">
-    <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
-  </div> -->
-  <div class="row">
-    <div class="col-lg-6 mb-2 pr-lg-1">
-      <h2 class="title">Top 10 Artists</h2>
-        <ol class="list">
-          <% current_user.top_artists.each do |artist| %>
-            <li><strong><%= artist %></strong></li>
-          <% end %>
-        </ol>
-    </div>
-
-    <div class="col-lg-6 mb-2 pr-lg-1">
-      <h2 class="title">Top 10 Musics</h2>
-        <ol class="list">
-          <% current_user.top_songs.each do |song| %>
-            <li><strong><%= song %></strong></li>
-          <% end %>
-        </ol>  
-    </div>
-
-    <div class="col-lg-6 pr-lg-1 mb-2">
-      <h2 class="title">Top 10 Artists</h2>
-        <ol class="list">
-          <% current_user.top_artists.each do |artist| %>
-            <li><strong><%= artist %></strong></li>
-          <% end %>
-        </ol>  
-    </div>
-
-    <div class="col-lg-6 pl-lg-1">
-      <h2 class="title">Top 10 Musics</h2>
+  <div class="py-4 px-4">
+    <!-- <div class="d-flex align-items-center justify-content-between mb-3">
+      <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+    </div> -->
+    <div class="row">
+      <div class="col-sm-6 mb-2 pr-lg-1">
+        <h2 class="title">Last 10 Artists</h2>
           <ol class="list">
-            <% current_user.top_songs.each do |song| %>
+            <% current_user.last_artists.each do |artist| %>
+              <li><strong><%= artist %></strong></li>
+            <% end %>
+          </ol>
+      </div>
+
+      <div class="col-sm-6 mb-2 pr-lg-1">
+        <h2 class="title">Last 10 Musics</h2>
+          <ol class="list">
+            <% current_user.last_songs.each do |song| %>
               <li><strong><%= song %></strong></li>
             <% end %>
           </ol>  
+      </div>
+
+      <div class="mb-2 w-100">
+        <h2 class="title ">Last 10 Albums</h2>
+        <div class="row justify-content-md-center ">
+          <% current_user.last_albums.each_with_index do |album, index| %> 
+            <%= link_to current_user.link_albums[index] do %>
+              <div class="col-4 mb-2 ">         
+                <%= image_tag album %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>   
     </div>
   </div>
-</div>  
-
+</div>

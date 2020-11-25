@@ -1,33 +1,16 @@
 body {
   background-color: #557571 !important;
   background-size: cover;
-  color: #d49a89;
+  color: #d49a89 !important;
 }
-
-// .card {
-//   background-color: #557571 !important;
-//   color: #d49a89;
-//   font-size: 20px;
-//   font-weight: lighter;
-//   width: 50%;
-//   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
-// }
-
 
 .profile-head {
     transform: translateY(5rem)
 }
 
 .cover {
-    background-image: url(https://images.unsplash.com/photo-1508614999368-9260051292e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
     background-size: cover;
 }
-
-// body {
-//     background: #654ea3;
-//     background: linear-gradient(to right, #e96443, #904e95);
-//     min-height: 100vh
-// }
 
 // .jumbotron {
 //   padding-top: 3rem;
