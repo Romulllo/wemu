@@ -1,54 +1,47 @@
-<div class="container">
-  <div class="cima-container container">
-
-    <div class="row">
-      <div class="col-sm-6 mb-2 pr-lg-1">
-        <div class="profile block">
-          <div class="profile-picture big-profile-picture clear">
-            <% avatar_url = current_user.spotify_picture_url %>
-            <%= image_tag avatar_url %>
-          </div>
-          <h1 class="user-name"><%= current_user.first_name %></h1>
-          <ul class="profile-options horizontal-list">
-            <li><a class="likes" href="#42"><p><span class="icon fontawesome-heart-empty"></span>49</li></p></a><!-- <p><span class="fas fa-map-marker-alt"></i> Niterói </p></a> -->
-          </ul>
+<div class="container container-cima justify-content-sm-center">
+  <div class="row justify-content-sm-center">
+    <div class="col mb-2 ml-2 p-4">
+      <div class="profile-picture big-profile-picture justify-content-sm-center">
+        <% avatar_url = current_user.spotify_picture_url %>
+        <%= image_tag avatar_url %>
       </div>
-  
-      <div class="col-sm-6 mb-2 pr-lg-1">
-        <h2 class="title">Last 10 Artists</h2>
-          <ol class="list">
-            <% current_user.last_artists.each do |artist| %>
-              <li><strong><%= artist %></strong></li>
-            <% end %>
-          </ol>
-      </div>
-
-      <div class="col-sm-6 mb-2 pr-lg-1">
-        <h2 class="title">Last 10 Musics</h2>
-          <ol class="list">
-            <% current_user.last_songs.each do |song| %>
-              <li><strong><%= song %></strong></li>
-            <% end %>
-          </ol>  
+      <div class="">
+        <h1 class="user-name"><%= current_user.first_name %></h1>
       </div>
     </div>
-  </div>
 
-
-  <div class="container-baixo">
-    <div class="mb-2 w-100">
-      <h2 class="title ">Last 10 Albums</h2>
-      <div class="row justify-content-md-center ">
-        <% current_user.last_albums.each_with_index do |album, index| %> 
-          <%= link_to current_user.link_albums[index] do %>
-            <div class="col-4 mb-2 ">         
-              <%= image_tag album %>
-            </div>
+    
+    <div class="col mb-2 p-2">
+      <h2 class="title">Last 10 Artists</h2>
+        <ol class="list">
+          <% current_user.last_artists.each do |artist| %>
+            <li><strong><%= artist %></strong></li>
           <% end %>
-        <% end %>
-      </div>
-    </div>  
-  </div> 
+        </ol>
+    </div>
+    <div class="col mb-2 p-2">
+      <h2 class="title">Last 10 Musics</h2>
+        <ol class="list">
+          <% current_user.last_songs.each do |song| %>
+            <li><strong><%= song %></strong></li>
+          <% end %>
+        </ol>  
+    </div>
+  </div>
 </div>
- 
 
+
+<div class="container container-baixo justify-content-sm-center">
+  <div class="mb-2">
+    <h2 class="title text-center">Last 10 Albums</h2>
+    <div class="row justify-content-sm-center ">
+      <% current_user.last_albums.each_with_index do |album, index| %> 
+        <%= link_to current_user.link_albums[index] do %>
+          <div class="col mb-2 p-2">         
+            <%= image_tag album %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>  
+</div> 
