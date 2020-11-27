@@ -19,8 +19,8 @@ styles are down below --
 
 /* Chat containers */
 .container-messages {
-  border: 2px solid #dedede;
-  background-color: $wemu-white;
+  border: 2px solid $wemu-green;
+  background-color: $wemu-light-pink;
   border-radius: 5px;
   padding: 5px;
   margin: 10px 0;
@@ -51,14 +51,21 @@ styles are down below --
 .container-messages p {
   padding: 2px;
   margin: 2px;
+  color: $wemu-green;
 }
 
 .time-right{
   font-size: 12px;
   padding-top: 5px;
+  color: $wemu-green;
 }
 
 .styling-name {
   border-style:outset;
   margin-bottom:20px;
+}
+
+.h4-com-show h4 {
+  font-size:1.25rem;
+  color: $wemu-pink;
 }
