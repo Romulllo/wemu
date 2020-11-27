@@ -19,8 +19,9 @@
     </div>
       <% else %>
     </div>
-
-        <h4>Please, add your message to interact here! </h4>
+        <div class="h4-com-show">
+          <h4>Please, add your message to interact here! </h4>
+        </div>
         <%= simple_form_for [@community, @message] do |f| %>
           <%= f.input :content, label: false %>
           <%= f.submit "Post", class: 'btn btn-outline-success' %>
