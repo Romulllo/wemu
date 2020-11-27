@@ -12,7 +12,7 @@
 
     
     <div class="col mb-2 p-2">
-      <h2 class="title">Last 10 Artists</h2>
+      <h2 class="title-profile">Last 10 Artists</h2>
         <ol class="list">
           <% current_user.last_artists.each do |artist| %>
             <li><strong><%= artist %></strong></li>
@@ -20,7 +20,7 @@
         </ol>
     </div>
     <div class="col mb-2 p-2">
-      <h2 class="title">Last 10 Musics</h2>
+      <h2 class="title-profile">Last 10 Musics</h2>
         <ol class="list">
           <% current_user.last_songs.each do |song| %>
             <li><strong><%= song %></strong></li>
@@ -33,11 +33,11 @@
 
 <div class="container container-baixo justify-content-sm-center">
   <div class="mb-2">
-    <h2 class="title text-center">Last 10 Albums</h2>
+    <h2 class="title-profile text-center">Last 10 Albums</h2>
     <div class="row justify-content-sm-center ">
       <% current_user.last_albums.each_with_index do |album, index| %> 
         <%= link_to current_user.link_albums[index] do %>
-          <div class="img col mb-2 p-2">         
+          <div class="img-shaking col mb-2 p-2">         
             <%= image_tag album %>
           </div>
         <% end %>
@@ -45,3 +45,5 @@
     </div>
   </div>  
 </div> 
+
+
