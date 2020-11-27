@@ -18,13 +18,19 @@ body {
 	}
 	
 
-.container {
+.container-baixo{
 	font-family: "Montserrat", "Helvetica", "sans-serif";
 	color: #f7d1ba;
 	padding: 10px;
 }
 
-.title {
+.container-cima {
+	font-family: "Montserrat", "Helvetica", "sans-serif";
+	color: #f7d1ba;
+	padding: 10px;
+}
+
+.title-profile {
 	font-family: "lato", "Helvetica", "sans-serif";
 	color: #d49a89;
 }
@@ -35,7 +41,7 @@ body {
 }
 
 
-img:hover {
+.img-shaking:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
 
@@ -56,10 +62,3 @@ img:hover {
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
-
-// $wemu-green: #557571;
-// $wemu-pink: #d49a89;
-// $wemu-light-pink: #f7d1ba;
-// $wemu-white: #f4f4f4;
-// $body-font: "lato", "Helvetica", "sans-serif";
-// $headers-font: "Montserrat", "Helvetica", "sans-serif";
