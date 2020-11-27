@@ -53,14 +53,14 @@
 }
 
 .btn-secondary {
-  background-color: $wemu-light-pink;
+  background-color: $wemu-light-pink !important;
   border-radius: 3px;
-  color: $wemu-green;
-  border-color: $wemu-green;
+  color: $wemu-green !important;
+  border-color: $wemu-green !important;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary:hover {
-  background-color: $wemu-pink;
-  color: $wemu-green;
+  background-color: $wemu-pink !important;
+  color: $wemu-green !important;
 }
