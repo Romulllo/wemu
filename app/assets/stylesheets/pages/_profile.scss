@@ -1,38 +1,65 @@
 body {
   background-color: #557571 !important;
   background-size: cover;
-  color: #d49a89 !important;
+  color: #D49A89;
 }
 
-.profile-head {
-    transform: translateY(5rem)
+.profile-picture {
+	border-radius: 100%;
+	overflow: hidden;
+	-webkit-box-sizing: content-box;
+  	-moz-box-sizing: content-box;
+  	box-sizing: content-box;	
+}
+	.big-profile-picture {
+		border: 5px solid #f7d1ba;
+		width: 300px;
+		height: 300px;
+	}
+	
+
+.container {
+	font-family: "Montserrat", "Helvetica", "sans-serif";
+	color: #f7d1ba;
+	padding: 10px;
 }
 
-.cover {
-    background-size: cover;
+.title {
+	font-family: "lato", "Helvetica", "sans-serif";
+	color: #d49a89;
 }
 
-// .jumbotron {
-//   padding-top: 3rem;
-//   padding-bottom: 3rem;
-//   margin-bottom: 0;
-//   background-color: #fff;
-// }
-// @media (min-width: 768px) {
-//   .jumbotron {
-//     padding-top: 6rem;
-//     padding-bottom: 6rem;
-//   }
-// }
+.user-name {
+	font-family: "lato", "Helvetica", "sans-serif";
+	color: #d49a89;
+}
 
-// .jumbotron p:last-child {
-//   margin-bottom: 0;
-// }
 
-// .jumbotron h1 {
-//   font-weight: 300;
-// }
+img:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
 
-// .jumbotron .container {
-//   max-width: 40rem;
-// }
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+// $wemu-green: #557571;
+// $wemu-pink: #d49a89;
+// $wemu-light-pink: #f7d1ba;
+// $wemu-white: #f4f4f4;
+// $body-font: "lato", "Helvetica", "sans-serif";
+// $headers-font: "Montserrat", "Helvetica", "sans-serif";
