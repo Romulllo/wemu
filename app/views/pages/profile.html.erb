@@ -5,8 +5,8 @@
         <% avatar_url = current_user.spotify_picture_url %>
         <%= image_tag avatar_url %>
       </div>
-      <div class="">
-        <h1 class="user-name"><%= current_user.first_name %></h1>
+      <div class="justify-content-sm-center">
+        <h1 class="user-name text-center"><%= current_user.first_name %></h1>
       </div>
     </div>
 
@@ -37,7 +37,7 @@
     <div class="row justify-content-sm-center ">
       <% current_user.last_albums.each_with_index do |album, index| %> 
         <%= link_to current_user.link_albums[index] do %>
-          <div class="col mb-2 p-2">         
+          <div class="img col mb-2 p-2">         
             <%= image_tag album %>
           </div>
         <% end %>
