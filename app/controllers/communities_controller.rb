@@ -23,6 +23,7 @@ class CommunitiesController < ApplicationController
   def show
     @message = Message.new
     @membership = Membership.new
+    @current_membership = Membership.where(user: current_user, community: @community)
   end
 
   def edit
