@@ -69,3 +69,14 @@ styles are down below --
   font-size:1.25rem;
   color: $wemu-pink;
 }
+
+textarea{
+  background-color: $wemu-light-pink !important;
+  border-color: $wemu-light-pink !important;
+}
+
+
+input.string{
+  background-color: $wemu-light-pink !important;
+  border-color: $wemu-light-pink !important;
+}

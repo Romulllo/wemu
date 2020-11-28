@@ -40,14 +40,14 @@ main {
 }
 
 .btn-outline-secondary {
-  font-weight: bold;
-  color: $wemu-green;
-  border-color: $wemu-green;
-  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  font-weight: bold !important;
+  color: $wemu-green !important;
+  border-color: $wemu-green !important;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) !important;
 }
 
 .btn-outline-secondary:hover {
-  color: $wemu-light-pink;
-  background-color: $wemu-green;
-  border-color: $wemu-green;
+  color: $wemu-light-pink !important;
+  background-color: $wemu-green !important;
+  border-color: $wemu-green !important;
 }
