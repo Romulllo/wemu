@@ -14,7 +14,7 @@
 .link-button:hover {
   background-size: 100% 100%;
   border-radius: 20px;
-  color: #f8f8f8;
+  color: $wemu-green;
   cursor: pointer;
 }
 
@@ -25,4 +25,45 @@
 
 #query {
   background-color: $wemu-light-pink;
+}
+
+.button-pink {
+  background-color: $wemu-pink;
+  color: $wemu-light-pink;
+  text-decoration: none;
+  border: 2px solid $wemu-pink;
+  border-radius: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 15px;
+}
+
+.button-pink:hover {
+  background-size: 100% 100%;
+  border-radius: 0px;
+  color: $wemu-green;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-pink-search {
+  background-color: $wemu-pink;
+  color: $wemu-light-pink;
+  text-decoration: none;
+  border: 2px solid $wemu-pink;
+  border-radius: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.button-pink-search:hover {
+  background-size: 100% 100%;
+  border-radius: 0px;
+  color: $wemu-green;
+  text-decoration: none;
+  cursor: pointer;
 }
