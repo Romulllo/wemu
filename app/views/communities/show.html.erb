@@ -12,24 +12,22 @@
       <h3><em><%=@community.description %></em></h3>
       <% if @current_membership.exists? == false %>
         <%= simple_form_for [@community, @membership] do |f| %>
-        <%= f.submit "Join this community!", class: 'btn btn-outline-success mb-3' %>
-      <% end %>
-      <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
+          <%= f.submit "Join this community!", class: 'btn btn-outline-success mb-3' %>
+        <% end %>
+        <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
         <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
-    </div>
       <% else %>
-    </div>
         <div class="h4-com-show">
           <div class="container px-0">
             <h4>Please, add your message to interact here! </h4>
-          <%= simple_form_for [@community, @message] do |f| %>
-            <%= f.input :content, label: false%>
-            <%= f.submit "Post", class: 'btn btn-outline-success' %>
-          <% end %>
-          <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark my-3" %>
-          <% end %>
+            <%= simple_form_for [@community, @message] do |f| %>
+              <%= f.input :content, label: false%>
+              <%= f.submit "Post", class: 'btn btn-outline-success' %>
+            <% end %>
+            <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark my-3" %>
           </div>
         </div>
+      <% end %>
         <% @community.messages.order(created_at: :desc).each do |message|%>
           <div class=" container container-messages">
             <%= link_to user_path(message.user.id) do %>
@@ -40,6 +38,7 @@
             <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
           </div>
         <% end  %>
+    </div>
   </div>
 </div>
 
