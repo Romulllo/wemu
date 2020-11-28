@@ -1,21 +1,13 @@
-class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :landing ]
-  before_action :set_user, only: [:follow, :unfollow]
+class UsersController < ApplicationController
+  before_action :set_user, only: [:follow, :unfollow, :show]
 
-  def result
-    if params[:query].present?
-    # @communities = Community.where("name ILIKE ?", params[:query])
-      @communities = Community.search_by_name(params[:query])
-    else
-      @communities = Community.all
-    end
+  # def index
+  #   @users = User.where.not(id: current_user.id)
+  # end
+
+  def show
   end
 
-  def landing
-  end
-
-  def profile
-  end
 
   def follow
     if current_user.follow(@user.id)
@@ -40,7 +32,4 @@ class PagesController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
-
 end
-

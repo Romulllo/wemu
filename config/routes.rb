@@ -9,6 +9,13 @@ Rails.application.routes.draw do
     resources :memberships, only: [:create]
   end
 
+  resources :users, only: [:show, :index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
+
   # resources :profiles, only: [ :show ]
 
   get 'home',    to: 'pages#home'

@@ -2,19 +2,28 @@
   <div class="row justify-content-sm-center">
     <div class="col mb-2 ml-2 p-4">
       <div class="profile-picture big-profile-picture justify-content-sm-center">
-        <% avatar_url = current_user.spotify_picture_url %>
+        <% avatar_url = @user.spotify_picture_url %>
         <%= image_tag avatar_url %>
       </div>
       <div class="justify-content-sm-center">
-        <h1 class="user-name text-center"><%= current_user.first_name %></h1>
+        <h1 class="user-name text-center"><%= @user.first_name %></h1>
       </div>
+      <div data-user=<%= @user.id %>>
+			  <% if @user != current_user %>
+				  <% if current_user.is_following?(@user.id) %>
+					  <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "btn btn-primary" %>
+				  <% else %>
+				  	<%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "btn btn-primary" %>
+					<% end %>
+				<% end %>
+			</div>
     </div>
 
     
     <div class="col mb-2 p-2">
       <h2 class="title-profile">Last 10 Artists</h2>
         <ol class="list">
-          <% current_user.last_artists.each do |artist| %>
+          <% @user.last_artists.each do |artist| %>
             <li><strong><%= artist %></strong></li>
           <% end %>
         </ol>
@@ -22,7 +31,7 @@
     <div class="col mb-2 p-2">
       <h2 class="title-profile">Last 10 Musics</h2>
         <ol class="list">
-          <% current_user.last_songs.each do |song| %>
+          <% @user.last_songs.each do |song| %>
             <li><strong><%= song %></strong></li>
           <% end %>
         </ol>  
@@ -35,8 +44,8 @@
   <div class="mb-2">
     <h2 class="title-profile text-center">Last 10 Albums</h2>
     <div class="row justify-content-sm-center ">
-      <% current_user.last_albums.each_with_index do |album, index| %> 
-        <%= link_to current_user.link_albums[index] do %>
+      <% @user.last_albums.each_with_index do |album, index| %> 
+        <%= link_to @user.link_albums[index] do %>
           <div class="img-shaking col mb-2 p-2">         
             <%= image_tag album %>
           </div>
@@ -45,3 +54,4 @@
     </div>
   </div>  
 </div> 
+
