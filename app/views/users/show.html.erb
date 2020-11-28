@@ -5,15 +5,15 @@
         <% avatar_url = @user.spotify_picture_url %>
         <%= image_tag avatar_url %>
       </div>
-      <div class="justify-content-sm-center">
-        <h1 class="user-name text-center"><%= @user.first_name %></h1>
+      <div class="text-center">
+        <h1 class="user-name"><%= @user.first_name %></h1>
       </div>
-      <div data-user=<%= @user.id %>>
+      <div data-user=<%= @user.id%> class="text-center">
 			  <% if @user != current_user %>
 				  <% if current_user.is_following?(@user.id) %>
-					  <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "btn btn-primary" %>
+					  <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "button-pink justify-content-sm-center" %>
 				  <% else %>
-				  	<%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "btn btn-primary" %>
+				  	<%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "button-pink justify-content-sm-center" %>
 					<% end %>
 				<% end %>
 			</div>
