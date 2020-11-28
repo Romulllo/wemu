@@ -22,6 +22,7 @@ Devise.setup do |config|
     playlist-read-private
     user-read-private
     user-read-email
+    streaming
   ).join(' ')
 
 
