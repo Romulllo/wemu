@@ -13,34 +13,39 @@
       <% end %>
       </p>
     </div>
-  </section>
 
-  <div class="container">
+    <p class="lead">
+      <%= link_to new_community_path, method: 'get' do %>
+        <button type="button" class="button-pink">Create Community</button>
+      <% end %>
+    </p>
 
-    <div class="row">
+    <div class="container">
 
-      <% @communities.each do |community| %>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+      <div class="row">
+
+        <% @communities.each do |community| %>
+          <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              
+              <img src="<%= cl_image_path community.photo.key %>" class="card-img-top" alt="<%= community.name %>" width="100%" height="225">
             
-            <img src="<%= cl_image_path community.photo.key %>" class="card-img-top" alt="<%= community.name %>" width="100%" height="225">
-           
-            <div class="card-body">
-              <h2 class="mb-0"><%= community.name %></h2>
-              <p class="card-text"><%= community.description %></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <%= link_to community_path(community), method: 'get' do %>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View Community</button>
-                  <% end %>
+              <div class="card-body">
+                <h2 class="mb-0"><%= community.name %></h2>
+                <p class="card-text"><%= community.description %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <%= link_to community_path(community), method: 'get' do %>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View Community</button>
+                    <% end %>
+                  </div>
+                  <small class="text-muted"><%= community.memberships.count %> members</small>
                 </div>
-                <small class="text-muted"><%= community.memberships.count %> members</small>
               </div>
             </div>
           </div>
-        </div>
-      <% end%>
+        <% end%>
+      </div>
     </div>
-  </div>
-
+  </section>
 </main>
