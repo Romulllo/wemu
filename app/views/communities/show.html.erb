@@ -5,6 +5,7 @@
     </div>
   </div>
   <div class="col-6">
+
     <div class="container mt-5 text-center">
       <div class="styling-name">
         <h1><%=@community.name %></h1>
@@ -28,17 +29,18 @@
           </div>
         </div>
       <% end %>
-        <% @community.messages.order(created_at: :desc).each do |message|%>
-          <div class=" container container-messages">
-            <%= link_to user_path(message.user.id) do %>
-              <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages"%>
-              <p><strong><%=message.user.first_name%></strong></p>
-            <% end %>
-            <p><%=message.content%></p>
-            <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
-          </div>
-        <% end  %>
     </div>
+
+    <% @community.messages.order(created_at: :desc).each do |message|%>
+      <div class=" container container-messages">
+        <%= link_to user_path(message.user.id) do %>
+          <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages"%>
+          <p><strong><%=message.user.first_name%></strong></p>
+        <% end %>
+        <p><%=message.content%></p>
+        <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
+      </div>
+    <% end  %>
   </div>
 </div>
 
