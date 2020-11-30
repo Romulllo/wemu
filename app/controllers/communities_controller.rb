@@ -10,15 +10,19 @@ class CommunitiesController < ApplicationController
     @community = Community.new(community_params)
     @community.user = current_user
 
-    playlists = RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
-      "name": "#{@community.name}",
-      "description": "#{@community.description}",
-      "public": false
-    }, { Authorization: "Bearer BQB4hKNP9e4Dizrfs3Fu1Eg8gNaG0JosGYDVraocw-Z1w5Bf-RXMaJwR3W5JQFd1y7DOP9ajsRl0NOyIYCPXmtfHoRsWW2uv0UT6VRUVS6zZ74_HEtiBd1ftxh9ykaS6HiCvY6OSn6LwwlTHYKMsQLf2YU9y5M3ctrLnzyZLSSzEjHD_2V_TL1guibKZ9ecJaviqecTzLQUM1VHpdDiQdxVWrcAYral7kXrC", accept: :json })
+    @membership = Membership.new
+    @membership.user = current_user
+    @membership.community = @community
 
-    playlists
+    # playlists = RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
+    #   "name": "#{@community.name}",
+    #   "description": "#{@community.description}",
+    #   "public": false
+    # }, { Authorization: "Bearer BQB4hKNP9e4Dizrfs3Fu1Eg8gNaG0JosGYDVraocw-Z1w5Bf-RXMaJwR3W5JQFd1y7DOP9ajsRl0NOyIYCPXmtfHoRsWW2uv0UT6VRUVS6zZ74_HEtiBd1ftxh9ykaS6HiCvY6OSn6LwwlTHYKMsQLf2YU9y5M3ctrLnzyZLSSzEjHD_2V_TL1guibKZ9ecJaviqecTzLQUM1VHpdDiQdxVWrcAYral7kXrC", accept: :json })
 
-    if @community.save
+    # playlists
+
+    if @community.save && @membership.save
       redirect_to community_path(@community)
     else
       render 'new'
