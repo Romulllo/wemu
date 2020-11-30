@@ -8,11 +8,17 @@ required for the video modal... Video Modal
 styles are down below --
 -----------------------------------------*/
 
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
 .col-6 {
   background-color: $wemu-green;
 }
 
-.col-6 h1,h3 {
+.col-6 h1,
+h3 {
   color: $wemu-pink;
   font: $headers-font;
 }
@@ -54,29 +60,28 @@ styles are down below --
   color: $wemu-green;
 }
 
-.time-right{
+.time-right {
   font-size: 12px;
   padding-top: 5px;
   color: $wemu-green;
 }
 
 .styling-name {
-  border-style:outset;
-  margin-bottom:20px;
+  border-style: outset;
+  margin-bottom: 20px;
 }
 
 .h4-com-show h4 {
-  font-size:1.25rem;
+  font-size: 1.25rem;
   color: $wemu-pink;
 }
 
-textarea{
+textarea {
   background-color: $wemu-light-pink !important;
   border-color: $wemu-light-pink !important;
 }
 
-
-input.string{
+input.string {
   background-color: $wemu-light-pink !important;
   border-color: $wemu-light-pink !important;
 }
