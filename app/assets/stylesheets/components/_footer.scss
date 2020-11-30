@@ -1,6 +1,9 @@
 footer {
   background-color: $wemu-light-pink;
   color: $wemu-green !important;
+  grid-row-start: 2;
+  grid-row-end: 3;
+
   a {
     color: $wemu-green !important;
   }
