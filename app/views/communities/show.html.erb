@@ -28,12 +28,13 @@
             <%= link_to results_path, method: 'get' do %>
               <button type="button" class="button-pink">Go back to search page</button>
             <% end %>
-            <button type="button" class="button-pink">Create Playlist</button>
+            <% if current_user.id == @community.user_id %>
+              <button type="button" class="button-pink">Create Playlist</button>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
-
     <% @community.messages.order(created_at: :desc).each do |message|%>
       <div class=" container container-messages">
         <%= link_to user_path(message.user.id) do %>
