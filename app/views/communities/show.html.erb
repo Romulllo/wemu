@@ -1,7 +1,7 @@
-
 <div class="row">
-  <div class="col-6">
+  <div class="col-6 pl-0">
     <div class="community-banner", style="background-image: url(<%= cl_image_path @community.photo.key %>)">
+      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcHp8s7jfJ6Q" width="300" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   </div>
   <div class="col-6">
@@ -25,12 +25,16 @@
               <%= f.input :content, label: false%>
               <%= f.submit "Post", class: 'btn btn-outline-success' %>
             <% end %>
-            <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark my-3" %>
+            <%= link_to results_path, method: 'get' do %>
+              <button type="button" class="button-pink">Go back to search page</button>
+            <% end %>
+            <% if current_user.id == @community.user_id %>
+              <button type="button" class="button-pink">Create Playlist</button>
+            <% end %>
           </div>
         </div>
       <% end %>
     </div>
-
     <% @community.messages.order(created_at: :desc).each do |message|%>
       <div class=" container container-messages">
         <%= link_to user_path(message.user.id) do %>

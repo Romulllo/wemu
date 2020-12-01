@@ -6,13 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+puts 'Comunidades...'
+sleep 1
 Community.destroy_all
+puts 'Apagada !'
 
-Community.create(user_id: 1, name: 'rock', description: 'boa musica')
-puts 'one community'
+sleep 2
+
+puts 'Usuarios...'
 sleep 1
-Community.create(user_id: 1, name: 'iron', description: 'boa musica')
-puts 'two community'
-sleep 1
-Community.create(user_id: 1, name: 'legal', description: 'boa musica')
-puts 'three community'
+User.destroy_all
+puts 'Apagado !'

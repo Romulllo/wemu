@@ -9,10 +9,21 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(community_params)
     @community.user = current_user
-    if @community.save
+
+    @membership = Membership.new
+    @membership.user = current_user
+    @membership.community = @community
+
+    # RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
+    #   "name": "#{@community.name}",
+    #   "description": "#{@community.description}",
+    #   "public": true
+    # }, { Authorization: "Bearer #{current_user.token}", accept: :json })
+
+    if @community.save && @membership.save
       redirect_to community_path(@community)
     else
-      render 'new'
+      render 'new'  
     end
   end
 
