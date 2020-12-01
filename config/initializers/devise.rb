@@ -25,6 +25,8 @@ Devise.setup do |config|
     streaming
     playlist-modify-public
     playlist-modify-private
+    playlist-read-private
+    playlist-read-collaborative
   ).join(' ')
 
 
