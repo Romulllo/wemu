@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_community, only: [:show, :edit, :update, :destroy]
+  before_action :set_community, only: [:show, :edit, :update, :destroy, :create_playlist]
 
   def new
     @community = Community.new
@@ -13,12 +13,6 @@ class CommunitiesController < ApplicationController
     @membership = Membership.new
     @membership.user = current_user
     @membership.community = @community
-
-    RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
-      "name": "#{@community.name}",
-      "description": "#{@community.description}",
-      "public": true
-    }.to_json , { Authorization: "Bearer #{current_user.token}", accept: :json })
 
     if @community.save && @membership.save
       redirect_to community_path(@community)
@@ -51,6 +45,22 @@ class CommunitiesController < ApplicationController
   def destroy
     @community.delete
     redirect_to communities
+  end
+
+  def create_playlist
+    playlist = RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
+      "name": "#{@community.name}",
+      "description": "#{@community.description}",
+      "public": true
+    }.to_json, { Authorization: "Bearer #{current_user.token}", accept: :json })
+    
+    response = JSON.parse(playlist)
+    playlist_spotify = ''
+    playlist_spotify << response['id']
+
+    @community.playlist = playlist_spotify
+    @community.save
+    
   end
 
   private

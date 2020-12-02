@@ -11,4 +11,5 @@ class Community < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
 end
