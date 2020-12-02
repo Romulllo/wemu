@@ -1,7 +1,8 @@
+<!--
 <div class="row">
   <div class="col-6 pl-0">
     <div class="community-banner", style="background-image: url(<%= cl_image_path @community.photo.key %>)">
-      <iframe src="https://open.spotify.com/embed/playlist/<%=@community.playlist%>" width="300" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <iframe src="https://open.spotify.com/embed/playlist/<%=@community.playlist%>" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   </div>
   <div class="col-6">
@@ -47,5 +48,58 @@
     <% end  %>
   </div>
 </div>
+-->
 
+<div class='community-show'>
+  <div class='banner-community', style="background-image: url(<%= cl_image_path @community.photo.key %>)">
+  </div>
+  
+  <div class="row">
+    <div class="col-sm">
+      <div class="container mt-5 text-center">
+        <div class="styling-name">
+          <h1><%=@community.name %></h1>
+        </div>
+        <h3><em><%=@community.description %></em></h3>
+        <% if @current_membership.exists? == false %>
+          <%= simple_form_for [@community, @membership] do |f| %>
+            <%= f.submit "Join this community!", class: 'btn btn-outline-success mb-3' %>
+          <% end %>
+          <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
+          <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
+        <% else %>
+          <div class="h4-com-show">
+            <div class="container px-0">
+              <h4>Please, add your message to interact here! </h4>
+              <%= simple_form_for [@community, @message] do |f| %>
+                <%= f.input :content, label: false%>
+                <%= f.submit "Post", class: 'btn btn-outline-success' %>
+              <% end %>
+              <%= link_to results_path, method: 'get' do %>
+                <button type="button" class="button-pink">Go back to search page</button>
+              <% end %>                  
+                <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'button-pink' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% @community.messages.order(created_at: :desc).each do |message|%>
+        <div class=" container container-messages">
+          <%= link_to user_path(message.user.id) do %>
+            <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages"%>
+            <p><strong><%=message.user.first_name%></strong></p>
+          <% end %>
+          <p><%=message.content%></p>
+          <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
+        </div>
+    <% end  %>
+    </div>
+
+    <% if @community.playlist.present? %>
+      <div class="col-sm">
+        <iframe src=<%= "https://open.spotify.com/embed/playlist/#{@community.playlist}" %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+    <% end %>
+  </div>
+</div>
 

@@ -13,11 +13,11 @@ styles are down below --
   margin-left: 0px !important;
 }
 
-.col-6 {
+.col-sm {
   background-color: $wemu-green;
 }
 
-.col-6 h1,
+.col-sm h1,
 h3 {
   color: $wemu-pink;
   font: $headers-font;
@@ -84,4 +84,12 @@ textarea {
 input.string {
   background-color: $wemu-light-pink !important;
   border-color: $wemu-light-pink !important;
+}
+
+iframe {
+  margin-top: 50px;
+  width: 100%;
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 90px);
 }

@@ -47,7 +47,7 @@ class CommunitiesController < ApplicationController
     redirect_to communities
   end
 
-  def create_playlist
+  def create_playlist    
     playlist = RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
       "name": "#{@community.name}",
       "description": "#{@community.description}",
@@ -60,16 +60,20 @@ class CommunitiesController < ApplicationController
 
     @community.playlist = playlist_spotify
     @community.save
+
+    redirect_to community_path(@community)
+
     
   end
 
   private
 
   def set_community
-    @community = Community.find(params[:id])
+    id = params[:id] ? params[:id] : params[:community_id]
+    @community = Community.find(id)
   end
 
   def community_params
-    params.require(:community).permit(:name, :description, :photo)
+    params.require(:community).permit(:name, :description, :photo, :playlist)
   end
 end
