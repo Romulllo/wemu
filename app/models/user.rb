@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [ :spotify ]
- 
+
   has_many :memberships
   has_many :messages
   has_many :communities
@@ -31,10 +31,21 @@ class User < ApplicationRecord
     spotify_last_albums  = []
     spotify_link_albums  = []
 
-    response_1 = RestClient.get('https://api.spotify.com/v1/me', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
-    spotify_response_1 = JSON.parse(response_1)
-    spotify_countries = []
-    spotify_followers = []
+    # response_1 = RestClient.get('https://api.spotify.com/v1/me', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    # spotify_response_1 = JSON.parse(response_1)
+    # spotify_countries = []
+    # spotify_followers = []
+
+    response_2 = RestClient.get('https://api.spotify.com/v1/me/top/artists?limit=10', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    spotify_response_top_artists = JSON.parse(response_2)
+    spotify_top_artists = []
+    spotify_link_artists = []
+
+    response_3 = RestClient.get('https://api.spotify.com/v1/me/top/tracks?limit=10', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    spotify_response_top_songs = JSON.parse(response_3)
+    spotify_top_songs = []
+    spotify_link_songs = []
+
 
     spotify_response['items'].each do |item|
       spotify_last_artists << item['track']['album']['artists'][0]['name']
@@ -43,24 +54,41 @@ class User < ApplicationRecord
       spotify_link_albums << item['track']['album']['external_urls']['spotify']
     end
 
+    spotify_response_top_songs['items'].each do |item|
+      spotify_top_songs << item['name']
+      spotify_link_songs << item['external_urls']["spotify"]
+
+    end
+
+     spotify_response_top_artists['items'].each do |item|
+      spotify_top_artists << item['name']
+      spotify_link_artists << item['external_urls']['spotify']
+    end
+
     # spotify_response_1['country'].each do |x|
     #   spotify_countries << x
     # end
 
     # spotify_response_1['followers'].each do |follower|
-    #   spotify_followers << follower     
+    #   spotify_followers << follower
     # end
 
     user_params[:last_artists] = spotify_last_artists
     user_params[:last_songs] = spotify_last_songs
     user_params[:last_albums] = spotify_last_albums
     user_params[:link_albums] = spotify_link_albums
+    user_params[:top_artists] = spotify_top_artists
+    user_params[:top_songs] = spotify_top_songs
+    user_params[:link_artists] = spotify_link_artists
+    user_params[:link_songs] = spotify_link_songs
+
     # user_params[:country] = spotify_countries
     # user_params[:followers] = spotify_followers
     user_params = user_params.to_h
 
     user = User.find_by(provider: auth.provider, uid: auth.uid)
     user ||= User.find_by(email: auth.info.email) # User did a regular sign up in the past.
+
     if user
       user.update(user_params)
       user.save!
