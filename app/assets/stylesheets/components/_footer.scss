@@ -1,6 +1,9 @@
 footer {
   background-color: $wemu-light-pink;
   color: $wemu-green !important;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   a {
     color: $wemu-green !important;
