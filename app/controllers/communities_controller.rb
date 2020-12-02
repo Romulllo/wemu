@@ -23,7 +23,7 @@ class CommunitiesController < ApplicationController
     if @community.save && @membership.save
       redirect_to community_path(@community)
     else
-      render 'new'  
+      render 'new'
     end
   end
 
