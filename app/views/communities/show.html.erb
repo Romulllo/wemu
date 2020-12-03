@@ -58,27 +58,31 @@
     <div class="col-sm">
       <div class="container mt-5 text-center">
         <div class="styling-name">
-          <h1><%=@community.name %></h1>
+          <h1><%=@community.name.capitalize %></h1>
         </div>
         <h3><em><%=@community.description %></em></h3>
         <% if @current_membership.exists? == false %>
           <%= simple_form_for [@community, @membership] do |f| %>
+            <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
             <%= f.submit "Join this community!", class: 'btn btn-outline-success mb-3' %>
           <% end %>
           <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
-          <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
         <% else %>
           <div class="h4-com-show">
+            <div class='row'>
+              <div class='col-sm'>
+                <%= link_to results_path, method: 'get' do %>
+                  <button type="button" class="button-pink">Go back to search page</button>
+                <% end %>
+              </div>
+                <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'button-pink' %>
+            </div>
             <div class="container px-0">
               <h4>Please, add your message to interact here! </h4>
               <%= simple_form_for [@community, @message] do |f| %>
                 <%= f.input :content, label: false%>
                 <%= f.submit "Post", class: 'btn btn-outline-success' %>
               <% end %>
-              <%= link_to results_path, method: 'get' do %>
-                <button type="button" class="button-pink">Go back to search page</button>
-              <% end %>                  
-                <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'button-pink' %>
             </div>
           </div>
         <% end %>
