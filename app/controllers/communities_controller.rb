@@ -66,7 +66,7 @@ class CommunitiesController < ApplicationController
 
   def search_track(search)
     @search = search
-    response = RestClient.get("api.spotify.com/v1/search?q=#{@search}&type=track&market=US&limit=1", { Authorization: 'Bearer BQBz5wAMfdn_g2HpZ_VW7yIHHSXFen1_P0APoO79XfW9Q35WUI-KH6R7HdaIISXPe38SUFCv5xa2G5TGoJ1gLTAZy8mCXyQmLibeA9ifaWLH_xKnpjJpzF45XhBmX41hee3cHUBVfwxIjnw3-ur1nBE5Y5Tzqw4G88I0uRBrW4AuFgfY7-LjeDtsZ2CZHscg-sOCTjb4pDEWhlcwaTVfcwAHOszamrZ_TIMt', accept: :json })
+    response = RestClient.get("api.spotify.com/v1/search?q=#{@search}&type=track&market=US&limit=1", { Authorization: 'Bearer #{current_user.token}', accept: :json })
     response_search = JSON.parse(response)
 
     @search_track_id = response_search['tracks']['items'][0]['uri']

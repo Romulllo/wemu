@@ -108,7 +108,7 @@
 
     <% if @community.playlist.present? %>
       <div class="col-sm mt-3">
-        <%= form_tag '#', method: 'get' do %>
+        <%= form_tag community_search_track_path(@community), method: 'get' do %>
           <div id= "search-data" class="form-search search-data" data-communities="<%= @communities.to_json %>">
               <%= text_field_tag :query, nil, autocomplete: :off, class: "form-control search-input", placeholder: "Mastodon,..." %>
               <%= submit_tag "Search", class: "button-pink-search " %>
