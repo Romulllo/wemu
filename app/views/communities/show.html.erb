@@ -79,11 +79,11 @@
                   <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'button-pink' %>
                 </div>
               <% end %>
-
+              <% if @community.user_id == current_user.id %>
               <div class='col-sm'>
                 <%= link_to 'Delete the community', results_path, class: 'button-destroy'%>
               </div>
-
+              <% end %>
             </div>
             <div class="container px-0">
               <h4>Please, add your message to interact here! </h4>
