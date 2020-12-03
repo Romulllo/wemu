@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: [ :spotify ]
 
+  # searchkick word_start: [:first_name]
+
   has_many :memberships
   has_many :messages
   has_many :communities
