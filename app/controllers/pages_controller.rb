@@ -4,12 +4,11 @@ class PagesController < ApplicationController
 
   def result
     if params[:query].present?
-      Community.reindex
-      User.reindex
+
     # @communities = Community.where("name ILIKE ?", params[:query])
-      # @communities = Community.search_by_name(params[:query])
-      @communities = Community.search(params[:query])
-      @profiles = User.search(params[:query])
+      @communities = Community.search_by_name(params[:query])
+      @profiles = User.search_by_name(params[:query])
+
     else
       @communities = Community.all
       @profiles = User.all

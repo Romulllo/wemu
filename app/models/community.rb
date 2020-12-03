@@ -11,6 +11,4 @@ class Community < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
-  # searchkick word_start: [:name, :description]
 end
