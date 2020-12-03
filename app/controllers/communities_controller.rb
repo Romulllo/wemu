@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_community, only: [:show, :edit, :update, :destroy, :create_playlist]
+  before_action :set_community, only: [:show, :edit, :update, :destroy, :create_playlist, :search_track]
 
   def new
     @community = Community.new
@@ -62,8 +62,21 @@ class CommunitiesController < ApplicationController
     @community.save
 
     redirect_to community_path(@community)
+  end
 
-    
+  def search_track(search)
+    @search = search
+    response = RestClient.get("api.spotify.com/v1/search?q=#{@search}&type=track&market=US&limit=1", { Authorization: 'Bearer BQBz5wAMfdn_g2HpZ_VW7yIHHSXFen1_P0APoO79XfW9Q35WUI-KH6R7HdaIISXPe38SUFCv5xa2G5TGoJ1gLTAZy8mCXyQmLibeA9ifaWLH_xKnpjJpzF45XhBmX41hee3cHUBVfwxIjnw3-ur1nBE5Y5Tzqw4G88I0uRBrW4AuFgfY7-LjeDtsZ2CZHscg-sOCTjb4pDEWhlcwaTVfcwAHOszamrZ_TIMt', accept: :json })
+    response_search = JSON.parse(response)
+
+    @search_track_id = response_search['tracks']['items'][0]['uri']
+    @search_track_name = response_search['tracks']['items'][0]['name']
+    @search_track_artists = response_search['tracks']['items'][0]['artists'][0]['name']
+
+    redirect_to community_path(@community)
+  end
+
+  def add_track_playlist
   end
 
   private
