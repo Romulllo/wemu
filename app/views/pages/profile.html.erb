@@ -7,11 +7,15 @@
       </div>
       <div class="justify-content-sm-center">
         <h1 class="user-name text-center"><%= current_user.first_name %></h1>
+        <h3 class="user-name text-center">Last song listened: <%= current_user.last_songs[0]%>, from
+          <%= current_user.last_artists[0]%>
+        </h3>
       </div>
+
     </div>
 
 
-    <div class="col mb-2 p-2">
+<!--     <div class="col mb-2 p-2">
       <h2 class="title-profile">Last 10 Artists</h2>
         <ol class="list">
           <% current_user.last_artists.each do |artist| %>
@@ -27,7 +31,28 @@
           <% end %>
         </ol>
     </div>
-  </div>
+  </div> -->
+  <div class="col mb-2 p-2">
+      <h2 class="title-profile">Top 10 Artists</h2>
+        <ol class="list">
+          <% current_user.top_artists.each_with_index do |artist, index| %>
+            <%= link_to current_user.link_artists[index], class: "link-tops" do %>
+            <li><strong><%= artist %></strong></li>
+            <% end %>
+          <% end %>
+        </ol>
+    </div>
+    <div class="col mb-2 p-2">
+      <h2 class="title-profile">Top 10 Songs</h2>
+        <ol class="list">
+          <% current_user.top_songs.each_with_index do |song, index| %>
+            <%= link_to current_user.link_songs[index], class: "link-tops" do %>
+            <li><strong><%= song %></strong></li>
+            <% end %>
+          <% end %>
+        </ol>
+    </div>
+
 </div>
 
 

@@ -53,7 +53,7 @@ body {
 
 .header > h1 {
   margin: 0;
-  color: $wemu-light-pink;
+  color: $wemu-green;
   font: $headers-font;
 }
 
@@ -61,7 +61,7 @@ body {
   margin-top: 10px;
   font-weight: normal;
   font-size: 20px;
-  color: $wemu-light-pink;
+  color: $wemu-green;
   font: $headers-font;
 }
 
@@ -102,7 +102,7 @@ body {
 .button-final {
   padding: 12px 10px;
   border: 0;
-  background: linear-gradient(to right, $wemu-light-pink 0%,$wemu-pink 100%);
+  background: linear-gradient(to right, $wemu-green 0%,$wemu-green 100%);
   border-radius: 3px;
   margin-top: 10px;
   color: #fff;

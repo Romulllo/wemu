@@ -19,14 +19,14 @@ styles are down below --
 
 .col-6 h1,
 h3 {
-  color: $wemu-pink;
+  color: $wemu-green;
   font: $headers-font;
 }
 
 /* Chat containers */
 .container-messages {
   border: 2px solid $wemu-green;
-  background-color: $wemu-light-pink;
+  background-color: $wemu-green;
   border-radius: 5px;
   padding: 5px;
   margin: 10px 0;
@@ -73,15 +73,15 @@ h3 {
 
 .h4-com-show h4 {
   font-size: 1.25rem;
-  color: $wemu-pink;
+  color: $wemu-green;
 }
 
 textarea {
-  background-color: $wemu-light-pink !important;
-  border-color: $wemu-light-pink !important;
+  background-color: $wemu-green !important;
+  border-color: $wemu-green !important;
 }
 
 input.string {
-  background-color: $wemu-light-pink !important;
-  border-color: $wemu-light-pink !important;
+  background-color: $wemu-green !important;
+  border-color: $wemu-green !important;
 }

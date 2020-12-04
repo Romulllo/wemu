@@ -45,6 +45,8 @@ class User < ApplicationRecord
     spotify_response_top_songs = JSON.parse(response_3)
     spotify_top_songs = []
     spotify_link_songs = []
+    spotify_top_link_albums = []
+
 
 
     spotify_response['items'].each do |item|
