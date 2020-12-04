@@ -24,7 +24,7 @@ class User < ApplicationRecord
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     time = Time.now.getutc
 
-    response = RestClient.get('https://api.spotify.com/v1/me/player/recently-played?limit=10', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    response = RestClient.get('https://api.spotify.com/v1/me/player/recently-played?limit=9', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
     spotify_response = JSON.parse(response)
     spotify_last_artists = []
     spotify_last_songs   = []
