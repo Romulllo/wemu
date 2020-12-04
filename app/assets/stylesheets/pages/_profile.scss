@@ -4,23 +4,33 @@ body {
   color: #D49A89;
 }
 
+.banner-profile{
+  height: 300px;
+  width: 100%;
+  background: linear-gradient(rgba(200, 200, 0, 0.5), rgba(0, 0, 0, 0.5));
+  .img-medium{
+    height: 300px;
+  }
+}
+
 .profile-picture {
 	border-radius: 100%;
 	overflow: hidden;
 	-webkit-box-sizing: content-box;
-  	-moz-box-sizing: content-box;
-  	box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: absolute;
+  top: -80px;
 }
 	.big-profile-picture {
-		border: 5px solid #f7d1ba;
-		width: 300px;
-		height: 300px;
+		border: 5px solid $wemu-green;
+		width: 250px;
+		height: 250px;
 	}
 
 
 .container-baixo{
 	font-family: "Montserrat", "Helvetica", "sans-serif";
-	color: #f7d1ba;
 	padding: 10px;
 }
 
@@ -30,16 +40,46 @@ body {
 	padding: 10px;
 }
 
+.container-left{
+  position: relative;
+}
+
 .title-profile {
 	font-family: "lato", "Helvetica", "sans-serif";
-	color: #d49a89;
+	color: $wemu-green;
 }
 
 .user-name {
 	font-family: "lato", "Helvetica", "sans-serif";
-	color: #d49a89;
+	color: $wemu-green;
+  font-size: 30px;
+  padding-top: 10px;
 }
 
+.user-song {
+  font-family: "lato", "Helvetica", "sans-serif";
+  color: $wemu-white;
+  font-size: 15px;
+  padding-bottom: 10px;
+  padding-top: 30px;
+  font-weight: bold;
+}
+
+#top-artists{
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+#top-songs{
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+
+.user-frame{
+  width: 100%;
+  margin: 0 auto;
+}
 
 .img-shaking:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
@@ -64,10 +104,31 @@ body {
 }
 
 .link-tops{
-  color:purple;
+  color: $wemu-white;
   &:hover {
     color:pink;
     background-color: purple;
     text-decoration: none;
   }
+}
+
+.informations{
+  padding-top: 30px;
+}
+
+.card-userinformation{
+  padding-top: 20px;
+  padding-right: 30px;
+  color: $wemu-green;
+  h3{
+    font-size: 15px
+  }
+  p{
+    font-size: 20px
+  }
+
+}
+
+.user-informations{
+  padding-top: 170px;
 }
