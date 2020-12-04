@@ -71,7 +71,7 @@ class CommunitiesController < ApplicationController
 
     track_items = []
 
-    track_items << response_search['tracks']['items']    
+    track_items << response_search['tracks']['items']
   end
 
   def add_track_playlist

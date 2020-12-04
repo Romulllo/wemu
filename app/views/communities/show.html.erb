@@ -118,9 +118,9 @@
         <% end %>
         <% if @track_items.present? %>
           <div class='col-sm mt-2 text-center'>
-            <% @track_items.each do |item| %>
+            <% @track_items[0].each do |item| %>
               <div class='row justify-content-center mb-2'>
-                  <p class='mb-0 pt-1'><%= item[0]['name']%> - <%=item[0]['artists'][0]['name']%></p>
+                  <p class='mb-0 pt-1'><%= item['name']%> - <%=item['artists'][0]['name']%></p>
                   <i class="fas fa-plus-circle" style='font-size: 30px'></i>
               </div>
             <% end %>
