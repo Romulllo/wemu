@@ -114,4 +114,12 @@ class User < ApplicationRecord
     relationship = Follow.find_by(follower_id: id, following_id: user_id)
     return true if relationship
   end
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name,
+    against: [ :first_name ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
 end

@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-  before_action :set_community, only: [:show, :edit, :update, :destroy]
+  before_action :set_community, only: [:show, :edit, :update, :destroy, :create_playlist, :search_track]
 
   def new
     @community = Community.new
@@ -13,12 +13,6 @@ class CommunitiesController < ApplicationController
     @membership = Membership.new
     @membership.user = current_user
     @membership.community = @community
-
-    RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
-      "name": "#{@community.name}",
-      "description": "#{@community.description}",
-      "public": true
-    }.to_json , { Authorization: "Bearer #{current_user.token}", accept: :json })
 
     if @community.save && @membership.save
       redirect_to community_path(@community)
@@ -53,13 +47,48 @@ class CommunitiesController < ApplicationController
     redirect_to communities
   end
 
+  def create_playlist    
+    playlist = RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
+      "name": "#{@community.name}",
+      "description": "#{@community.description}",
+      "public": true
+    }.to_json, { Authorization: "Bearer #{current_user.token}", accept: :json })
+    
+    response = JSON.parse(playlist)
+    playlist_spotify = ''
+    playlist_spotify << response['id']
+
+    @community.playlist = playlist_spotify
+    @community.save
+
+    redirect_to community_path(@community)
+  end
+
+  def search_track(search)
+    @search = search
+    response = RestClient.get("api.spotify.com/v1/search?q=#{@search}&type=track&market=US&limit=1", { Authorization: 'Bearer #{current_user.token}', accept: :json })
+    response_search = JSON.parse(response)
+
+    @search_track_id = response_search['tracks']['items'][0]['uri']
+    @search_track_name = response_search['tracks']['items'][0]['name']
+    @search_track_artists = response_search['tracks']['items'][0]['artists'][0]['name']
+
+    redirect_to community_path(@community)
+  end
+
+  def add_track_playlist
+
+
+  end
+
   private
 
   def set_community
-    @community = Community.find(params[:id])
+    id = params[:id] ? params[:id] : params[:community_id]
+    @community = Community.find(id)
   end
 
   def community_params
-    params.require(:community).permit(:name, :description, :photo)
+    params.require(:community).permit(:name, :description, :photo, :playlist)
   end
 end

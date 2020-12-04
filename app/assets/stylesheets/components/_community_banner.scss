@@ -1,14 +1,25 @@
-.community-banner {
-  position: sticky;
-  width: 100%;
-  height: 100vh;
+.banner-community {
   background-size: cover;
-  background-repeat: no-repeat;
-  top: 0;
-  background-position: center center;
-  text-align: center;
+  background-position: center;
+  height: 40vh;
+  position: relative;
 
-  iframe {
-    margin-top: 70px;
+  .banner-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $wemu-pink;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+
+    h1 {
+      letter-spacing: 3px;
+      font-size: 100px;
+    }
+
+    p {
+      font-size: 40px;
+    }
   }
 }

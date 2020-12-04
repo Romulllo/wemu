@@ -1,7 +1,8 @@
+<!--
 <div class="row">
   <div class="col-6 pl-0">
     <div class="community-banner", style="background-image: url(<%= cl_image_path @community.photo.key %>)">
-      <iframe src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcHp8s7jfJ6Q" width="300" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      <iframe src="https://open.spotify.com/embed/playlist/<%=@community.playlist%>" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
   </div>
   <div class="col-6">
@@ -47,5 +48,90 @@
     <% end  %>
   </div>
 </div>
+-->
 
+<div class='community-show'>
+  <div class='banner-community', style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(<%= cl_image_path @community.photo.key %>)">
+    <div class="banner-text">
+      <h1><%=@community.name.capitalize %></h1>
+      <p><%=@community.description.capitalize %></p>
+    </div>
+  </div>
+  <div class='container'>
+  <div class="row">
+    <div class="col-sm">
+      <div class="container mt-5 text-center">
+        <% if @current_membership.exists? == false %>
+          <%= simple_form_for [@community, @membership] do |f| %>
+            <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
+            <%= f.submit "Join this community!", class: 'button-pink mb-3' %>
+          <% end %>
+          <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
+        <% else %>
+          <div class="h4-com-show">
+            <div class='row mb-4'>
+              <div class='col-sm'>
+                <%= link_to 'Back to search page', results_path, class: 'button-pink'%>
+              </div>
+              <% unless @community.playlist.present? && @community.user_id == current_user.id %>
+                <div class='col-sm'>
+                  <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'button-pink' %>
+                </div>
+              <% end %>
+              <% if @community.user_id == current_user.id %>
+              <div class='col-sm'>
+                <%= link_to 'Delete the community', results_path, class: 'button-destroy'%>
+              </div>
+              <% end %>
+            </div>
+            <div class="container px-0">
+              <h4>Please, add your message to interact here! </h4>
+              <%= simple_form_for [@community, @message] do |f| %>
+                <%= f.input :content, label: false%>
+                <%= f.submit "Publish", class: 'button-pink' %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% @community.messages.order(created_at: :desc).each do |message|%>
+        <div class=" container container-messages">
+          <%= link_to user_path(message.user.id) do %>
+            <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages"%>
+            <p><strong><%=message.user.first_name%></strong></p>
+          <% end %>
+          <p><%= message.content.capitalize %></p>
+          <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
+        </div>
+    <% end  %>
+    </div>
 
+    <% if @community.playlist.present? %>
+      <div class="col-sm mt-3">
+        <%= form_tag community_search_track_path(@community), method: 'get' do %>
+          <div id= "search-data" class="form-search search-data" data-communities="<%= @communities.to_json %>">
+              <%= text_field_tag :query, nil, autocomplete: :off, class: "form-control search-input", placeholder: "Mastodon,..." %>
+              <%= submit_tag "Search", class: "button-pink-search " %>
+          </div>
+        <% end %>
+        <div class='col-sm mt-2 text-center'>
+          <div class='row justify-content-center mb-2'>
+              <p class='mb-0 pt-1'>Iron Man, Black Sabbath</p>
+              <i class="fas fa-plus-circle" style='font-size: 30px'></i>
+          </div>
+          <div class='row justify-content-center mb-2'>
+              <p class='mb-0 pt-1'>Iron Man, Black Sabbath</p>
+              <i class="fas fa-plus-circle" style='font-size: 30px'></i>
+          </div>
+          <div class='row justify-content-center mb-2'>
+              <p class='mb-0 pt-1'>Iron Man, Black Sabbath</p>
+              <i class="fas fa-plus-circle" style='font-size: 30px'></i>
+          </div>
+        </div>
+        <iframe src=<%= "https://open.spotify.com/embed/playlist/#{@community.playlist}" %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</div>

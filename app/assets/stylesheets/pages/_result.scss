@@ -37,7 +37,12 @@ main {
   }
 
   p {
+    height: 50px;
     color: $wemu-green;
+    max-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 

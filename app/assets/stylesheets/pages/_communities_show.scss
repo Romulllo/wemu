@@ -13,11 +13,11 @@ styles are down below --
   margin-left: 0px !important;
 }
 
-.col-6 {
+.col-sm {
   background-color: $wemu-green;
 }
 
-.col-6 h1,
+.col-sm h1,
 h3 {
   color: $wemu-green;
   font: $headers-font;
@@ -67,8 +67,9 @@ h3 {
 }
 
 .styling-name {
-  border-style: outset;
   margin-bottom: 20px;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  letter-spacing: 3px;
 }
 
 .h4-com-show h4 {
@@ -84,4 +85,12 @@ textarea {
 input.string {
   background-color: $wemu-green !important;
   border-color: $wemu-green !important;
+}
+
+iframe {
+  margin-top: 50px;
+  width: 100%;
+  position: sticky;
+  top: 60px;
+  height: calc(100vh - 90px);
 }

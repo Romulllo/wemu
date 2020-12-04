@@ -67,3 +67,25 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.button-destroy {
+  background-color: #9c2913;
+  color: $wemu-light-pink;
+  text-decoration: none;
+  border: 2px solid #58180b;
+  border-radius: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 15px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}
+
+.button-destroy:hover {
+  background-size: 100% 100%;
+  border-radius: 0px;
+  color: $wemu-green;
+  text-decoration: none;
+  cursor: pointer;
+}
