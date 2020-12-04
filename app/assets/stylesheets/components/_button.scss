@@ -46,11 +46,12 @@
   background-color: $wemu-green;
   text-decoration: none;
   cursor: pointer;
+  color: black;
 }
 
 .button-pink-search {
   background-color: $wemu-green;
-  color: $wemu-green;
+  color: $wemu-white;
   text-decoration: none;
   border: 2px solid $wemu-green;
   border-radius: 0px;
@@ -63,14 +64,14 @@
 .button-pink-search:hover {
   background-size: 100% 100%;
   border-radius: 0px;
-  color: $wemu-green;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
 
 .button-destroy {
   background-color: #9c2913;
-  color: $wemu-light-pink;
+  color: $wemu-white;
   text-decoration: none;
   border: 2px solid #58180b;
   border-radius: 0px;
@@ -85,7 +86,7 @@
 .button-destroy:hover {
   background-size: 100% 100%;
   border-radius: 0px;
-  color: $wemu-green;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }

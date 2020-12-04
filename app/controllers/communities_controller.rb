@@ -29,6 +29,7 @@ class CommunitiesController < ApplicationController
     @message = Message.new
     @membership = Membership.new
     @current_membership = Membership.where(user: current_user, community: @community)
+    @track_items = search_track(params[:query]) if params[:query]
   end
 
   def edit
@@ -64,16 +65,13 @@ class CommunitiesController < ApplicationController
     redirect_to community_path(@community)
   end
 
-  def search_track(search)
-    @search = search
-    response = RestClient.get("api.spotify.com/v1/search?q=#{@search}&type=track&market=US&limit=1", { Authorization: 'Bearer #{current_user.token}', accept: :json })
+  def search_track(search_field)
+    response = RestClient.get("api.spotify.com/v1/search?q=#{search_field}&type=track&market=US&limit=3", { Authorization: "Bearer #{current_user.token}", accept: :json })
     response_search = JSON.parse(response)
 
-    @search_track_id = response_search['tracks']['items'][0]['uri']
-    @search_track_name = response_search['tracks']['items'][0]['name']
-    @search_track_artists = response_search['tracks']['items'][0]['artists'][0]['name']
+    track_items = []
 
-    redirect_to community_path(@community)
+    track_items << response_search['tracks']['items']    
   end
 
   def add_track_playlist

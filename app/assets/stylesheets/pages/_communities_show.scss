@@ -14,7 +14,7 @@ styles are down below --
 }
 
 .col-sm {
-  background-color: $wemu-green;
+  background-color: black;
 }
 
 .col-sm h1,
@@ -26,7 +26,7 @@ h3 {
 /* Chat containers */
 .container-messages {
   border: 2px solid $wemu-green;
-  background-color: $wemu-green;
+  background-color: $wemu-white;
   border-radius: 5px;
   padding: 5px;
   margin: 10px 0;
@@ -35,7 +35,7 @@ h3 {
 /* Darker chat container */
 .darker {
   border-color: #ccc;
-  background-color: #ddd;
+  background-color: $wemu-white;
 }
 
 /* Clear floats */
@@ -78,7 +78,7 @@ h3 {
 }
 
 textarea {
-  background-color: $wemu-green !important;
+  background-color: $wemu-white !important;
   border-color: $wemu-green !important;
 }
 

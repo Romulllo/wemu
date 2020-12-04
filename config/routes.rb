@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :messages
     resources :memberships, only: [:create]
     get :create_playlist
-    get :search_track
+
   end
 
   resources :users, only: [:show, :index] do
