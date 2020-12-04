@@ -94,3 +94,22 @@ iframe {
   top: 60px;
   height: calc(100vh - 90px);
 }
+
+.btn-search {
+  background-color: $wemu-green !important;
+  border-color: $wemu-green !important;
+}
+
+.btn-search:hover {
+  color: black !important;
+}
+
+.search-music {
+  p {
+    max-width: 400px;
+    width: 400px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
