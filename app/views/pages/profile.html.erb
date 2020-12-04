@@ -1,41 +1,35 @@
+<div class='banner-profile d-flex'>
+  <div class="row">
+    <% count = 0 %>
+    <% length = current_user.link_album_top_artists.size %>
+    <% 6.times do  %>
+      <% if count >= length %>
+        <% count = 0 %>
+      <% end  %>
+      <div class="col-2 m-0 p-0">
+        <%= image_tag current_user.link_album_top_artists[count], class: "img-medium" %>
+      </div>
+      <% count += 1 %>
+    <% end %>
+  </div>
+</div>
+
 <div class="container container-cima justify-content-sm-center">
-  <div class="row justify-content-sm-center">
-    <div class="col mb-2 ml-2 p-4">
-      <div class="profile-picture big-profile-picture justify-content-sm-center">
+  <div class="row">
+    <div class="col-3 container-left">
+      <div class="profile-picture big-profile-picture">
         <% avatar_url = current_user.spotify_picture_url %>
         <%= image_tag avatar_url %>
       </div>
-      <div class="justify-content-sm-center">
+      <div class="user-informations">
         <h1 class="user-name text-center"><%= current_user.first_name %></h1>
-        <h3 class="user-name text-center">Last song listened: <%= current_user.last_songs[0]%>, from
-          <%= current_user.last_artists[0]%>
+        <h3 class="user-song text-center">Just listened:
         </h3>
-        <iframe src="https://open.spotify.com/embed/track/71J016NGpHvSmed7w63TzK" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        <iframe src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
+      <iframe class="user-frame" src="https://open.spotify.com/embed/track/<%= current_user.last_songs_identifiers[0] %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-    </div>
-
-
-<!--     <div class="col mb-2 p-2">
-      <h2 class="title-profile">Last 10 Artists</h2>
-        <ol class="list">
-          <% current_user.last_artists.each do |artist| %>
-            <li><strong><%= artist %></strong></li>
-          <% end %>
-        </ol>
-    </div>
-    <div class="col mb-2 p-2">
-      <h2 class="title-profile">Last 10 Musics</h2>
-        <ol class="list">
-          <% current_user.last_songs.each do |song| %>
-            <li><strong><%= song %></strong></li>
-          <% end %>
-        </ol>
-    </div>
-  </div> -->
-  <div class="col mb-2 p-2">
-      <h2 class="title-profile">Top 10 Artists</h2>
+      <div id="top-artists" class="">
+        <h2 class="title-profile">Top 10 Artists</h2>
         <ol class="list">
           <% current_user.top_artists.each_with_index do |artist, index| %>
             <%= link_to current_user.link_artists[index], class: "link-tops" do %>
@@ -43,18 +37,58 @@
             <% end %>
           <% end %>
         </ol>
-    </div>
-    <div class="col mb-2 p-2">
-      <h2 class="title-profile">Top 10 Songs</h2>
-        <ol class="list">
-          <% current_user.top_songs.each_with_index do |song, index| %>
-            <%= link_to current_user.link_songs[index], class: "link-tops" do %>
-            <li><strong><%= song %></strong></li>
+      </div>
+      <div id="top-songs" class="">
+        <h2 class="title-profile">Top 10 Songs</h2>
+          <ol class="list">
+            <% current_user.top_songs.each_with_index do |song, index| %>
+              <%= link_to current_user.link_songs[index], class: "link-tops" do %>
+              <li><strong><%= song %></strong></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ol>
+          </ol>
+      </div>
     </div>
-
+    <div class="col-9 container-right">
+      <div id="informations" class="d-flex justify-content-center">
+        <div class="card-userinformation  p-2">
+          <h3>Followers</h3>
+          <p>121</p>
+        </div>
+        <div class="card-userinformation p-2">
+          <h3>Following</h3>
+          <p>82</p>
+        </div>
+        <div class="card-userinformation  p-2">
+          <h3>Communities</h3>
+          <p>3</p>
+        </div>
+        <div class="card-userinformation  p-2">
+          <h3>Playlists</h3>
+          <p>10</p>
+        </div>
+      </div>
+      <div class="row justify-content-sm-center ">
+    <!--     <div class="col mb-2 p-2">
+          <h2 class="title-profile">Last 10 Artists</h2>
+            <ol class="list">
+              <% current_user.last_artists.each do |artist| %>
+                <li><strong><%= artist %></strong></li>
+              <% end %>
+            </ol>
+        </div>
+        <div class="col mb-2 p-2">
+          <h2 class="title-profile">Last 10 Musics</h2>
+            <ol class="list">
+              <% current_user.last_songs.each do |song| %>
+                <li><strong><%= song %></strong></li>
+              <% end %>
+            </ol>
+        </div>
+      </div> -->
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -109,4 +143,4 @@
     </div>
   </div>
 </div>
-<!--
+       
