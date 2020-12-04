@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_12_02_153443) do
     t.string "top_songs", default: [], array: true
     t.string "link_songs", default: [], array: true
     t.string "link_artists", default: [], array: true
+    t.string "top_link_albums", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

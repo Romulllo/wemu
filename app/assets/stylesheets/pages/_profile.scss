@@ -1,5 +1,5 @@
 body {
-  background-color: #557571 !important;
+  background-color: black !important;
   background-size: cover;
   color: #D49A89;
 }
@@ -9,14 +9,14 @@ body {
 	overflow: hidden;
 	-webkit-box-sizing: content-box;
   	-moz-box-sizing: content-box;
-  	box-sizing: content-box;	
+  	box-sizing: content-box;
 }
 	.big-profile-picture {
 		border: 5px solid #f7d1ba;
 		width: 300px;
 		height: 300px;
 	}
-	
+
 
 .container-baixo{
 	font-family: "Montserrat", "Helvetica", "sans-serif";
@@ -61,4 +61,13 @@ body {
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.link-tops{
+  color:purple;
+  &:hover {
+    color:pink;
+    background-color: purple;
+    text-decoration: none;
+  }
 }

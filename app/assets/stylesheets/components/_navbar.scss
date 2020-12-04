@@ -12,7 +12,7 @@
 }
 
 .bg-wemu {
-  background-color: $wemu-pink;
+  background-color: $wemu-green;
 }
 
 nav {
@@ -27,12 +27,12 @@ nav {
   }
 
   a {
-    color: $wemu-green !important;
+    color: $wemu-white !important;
   }
 }
 
 .dropdown-menu {
-  background-color: $wemu-light-pink !important;
+  background-color: $wemu-green !important;
 }
 
 .dropdown-item {
@@ -40,5 +40,5 @@ nav {
 }
 
 .dropdown-item:hover {
-  background-color: $wemu-pink !important;
+  background-color: $wemu-green !important;
 }

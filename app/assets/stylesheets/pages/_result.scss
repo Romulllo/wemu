@@ -11,7 +11,7 @@ main {
   padding-bottom: 0px !important;
 
   h1 {
-    color: $wemu-pink;
+    color: $wemu-green;
     text-transform: none;
     font-weight: 500;
     font-variant: small-caps;
@@ -19,7 +19,7 @@ main {
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
   }
   p {
-    color: $wemu-light-pink;
+    color: $wemu-green;
     font-size: 25px;
     font-weight: lighter;
     margin-bottom: 30px;
@@ -28,7 +28,7 @@ main {
 }
 
 .card-body {
-  background-color: $wemu-light-pink;
+  background-color: $wemu-green;
 
   h2 {
     color: $wemu-green;
@@ -54,7 +54,7 @@ main {
 }
 
 .btn-outline-secondary:hover {
-  color: $wemu-light-pink !important;
+  color: $wemu-green !important;
   background-color: $wemu-green !important;
   border-color: $wemu-green !important;
 }
