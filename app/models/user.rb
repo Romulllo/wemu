@@ -30,6 +30,7 @@ class User < ApplicationRecord
     spotify_last_songs   = []
     spotify_last_albums  = []
     spotify_link_albums  = []
+    spotify_last_songs_id = []
 
     # response_1 = RestClient.get('https://api.spotify.com/v1/me', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
     # spotify_response_1 = JSON.parse(response_1)
@@ -52,6 +53,7 @@ class User < ApplicationRecord
     spotify_response['items'].each do |item|
       spotify_last_artists << item['track']['album']['artists'][0]['name']
       spotify_last_songs << item['track']['name']
+      spotify_last_songs_id << item['track']['id']
       spotify_last_albums << item ['track']['album']['images'][1]['url']
       spotify_link_albums << item['track']['album']['external_urls']['spotify']
     end
@@ -83,6 +85,7 @@ class User < ApplicationRecord
     user_params[:top_songs] = spotify_top_songs
     user_params[:link_artists] = spotify_link_artists
     user_params[:link_songs] = spotify_link_songs
+    user_params[:last_songs_id] = spotify_last_songs_id
 
     # user_params[:country] = spotify_countries
     # user_params[:followers] = spotify_followers
