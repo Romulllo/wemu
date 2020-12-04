@@ -24,14 +24,14 @@
 }
 
 #query {
-  background-color: $wemu-light-pink;
+  background-color: $wemu-white;
 }
 
 .button-pink {
-  background-color: $wemu-pink;
-  color: $wemu-light-pink;
+  background-color: $wemu-green;
+  color: $wemu-white;
   text-decoration: none;
-  border: 2px solid $wemu-pink;
+
   border-radius: 0px;
   padding-right: 20px;
   padding-left: 20px;
@@ -43,16 +43,16 @@
 .button-pink:hover {
   background-size: 100% 100%;
   border-radius: 0px;
-  color: $wemu-green;
+  background-color: $wemu-green;
   text-decoration: none;
   cursor: pointer;
 }
 
 .button-pink-search {
-  background-color: $wemu-pink;
-  color: $wemu-light-pink;
+  background-color: $wemu-green;
+  color: $wemu-green;
   text-decoration: none;
-  border: 2px solid $wemu-pink;
+  border: 2px solid $wemu-green;
   border-radius: 0px;
   padding-right: 20px;
   padding-left: 20px;
