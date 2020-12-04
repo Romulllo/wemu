@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_212821) do
+ActiveRecord::Schema.define(version: 2020_12_04_152316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,8 @@ ActiveRecord::Schema.define(version: 2020_12_03_212821) do
     t.string "link_songs", default: [], array: true
     t.string "link_artists", default: [], array: true
     t.string "top_link_albums", default: [], array: true
+    t.string "last_songs_identifiers", default: [], array: true
+    t.string "link_album_top_artists", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
