@@ -1,0 +1,49 @@
+.inactive-tab {
+  display: none !important;
+}
+
+.tabs-underlined {
+  font-family: "Work Sans", "Helvetica", "sans-serif";
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.tabs-underlined .tab-underlined {
+  color: $wemu-green;
+  opacity: .4;
+  cursor: pointer;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+  &:hover {
+    opacity: 1;
+    border-bottom: 3px solid #555555;
+  }
+}
+
+.tabs{
+	h3{
+		text-align: center;
+    color: $wemu-green;
+    font-weight: bold;
+    padding-top: 100px;
+	}
+}
+
+.tabs-underlined .tab-underlined.active {
+  opacity: 1;
+}
+
+.card-small-img-top{
+  width: 150px;
+  height: 100%;
+}
+
+.card-small-community{
+
+}
+.card-small-body{
+  width: 60px;
+}
+
