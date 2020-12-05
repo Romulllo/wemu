@@ -66,8 +66,9 @@
         <div class="card-userinformation  p-2">
           <h3>Playlists</h3>
           <p>10</p>
-        </div>
+        </div>  
       </div>
+          
       <div>
         <div class="tabs">
           <h3>Communities</h3>
@@ -81,10 +82,10 @@
           </ul>
         </div>
         <div id="my-communities">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-around align-items-md-center">
             <% current_user.communities.limit(6).each do |community|  %>
               <%= link_to community_path(community), method: 'get' do %>
-                <div class="card-small-community shadow-sm p-2">
+                <div class="card-small-community shadow-sm p-1">
                   <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
                   <div class="card-small-body">
                     <p class="mb-0"><%= community.name %></p>
@@ -95,13 +96,13 @@
           </div>
         </div>
         <div id="participate-in" class="inactive-tab">
-          <div class="d-flex justify-content-center">
+          <div class="d-flex justify-content-around align-items-md-center">
             <% current_user.memberships.limit(6).each do |membership|  %>
               <%= link_to community_path(membership.community), method: 'get' do %>
-                <div class="card-small-community shadow-sm p-2">
+                <div class="card-small-community shadow-sm p-1">
                   <%= cl_image_tag membership.community.photo.key, class: "card-small-img-top" %>       
-                  <div class="card-small-body">
-                    <p class="mb-0"><%= membership.community.name %></p>
+                  <div class="card-small-body justify-content-center">
+                    <p class=""><%= membership.community.name %></p>
                   </div>
                 </div>
               <% end %>
@@ -110,19 +111,21 @@
         </div>
       </div>
 
+
       <div class="show-messages">
+        <h3>Stalking my communities</h3>
         <% messages = [] %>
-        <% current_user.memberships.limit(6).each do |membership|  %>
+        <% current_user.memberships.limit(4).each do |membership|  %>
           <% messages.concat membership.community.messages.where("user_id != #{current_user.id}").order(created_at: :desc).limit(6) %>
         <% end %>
         <% messages.sort_by(&:created_at).reverse! %>
         <% messages.each do |message| %>
-          <div class="show-messages-text d-flex pt-4 pb-1">
+          <div class="show-messages-text d-flex">
             <%= link_to user_path(message.user.id) do %>
               <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
             <% end %>
             <div>
-              <div class="d-flex">
+              <div class="messages-text-box d-flex">
                 <%= link_to user_path(message.user.id) do %>
                   <p><strong><%=message.user.first_name%></strong></p>
                 <% end %>
