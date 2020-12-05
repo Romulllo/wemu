@@ -32,7 +32,6 @@ h3 {
   margin: 10px 0;
 }
 
-
 /* Darker chat container */
 .darker {
   border-color: #ccc;
@@ -105,14 +104,6 @@ input.file{
   color: $wemu-white !important;
 }
 
-.iframe {
-  margin-top: 50px;
-  width: 100%;
-  position: sticky;
-  top: 60px;
-  height: calc(100vh - 90px);
-}
-
 .btn-search {
   background-color: $wemu-green !important;
   border-color: $wemu-green !important;
@@ -130,4 +121,12 @@ input.file{
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+}
+
+.playlist-box {
+  margin-top: 50px;
+  position: sticky;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 90px);
 }
