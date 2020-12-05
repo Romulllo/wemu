@@ -75,7 +75,7 @@ class CommunitiesController < ApplicationController
   end
 
   def add_track_playlist    
-    RestClient.post("https://api.spotify.com/v1/playlists/#{@community.playlist}/tracks?position=0&uris=#{params[:item]}", { Authorization: "Bearer #{current_user.token}", accept: :json })
+    RestClient.post("https://api.spotify.com/v1/playlists/#{@community.playlist}/tracks?position=0&uris=#{params[:item]}", {}.to_json, { Authorization: "Bearer #{current_user.token}", accept: :json })
 
     redirect_to community_path(@community)
   end

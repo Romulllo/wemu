@@ -12,14 +12,14 @@
         <% if @current_membership.exists? == false %>
           <%= simple_form_for [@community, @membership] do |f| %>
             <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
-            <%= f.submit "Join this community!", class: 'button-pink mb-3' %>
+            <%= f.submit "Join this community!", class: 'btn btn-primary button-green' %>
           <% end %>
           <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
         <% else %>
           <div class="h4-com-show">
             <div class='row mb-4'>
               <div class='col-sm'>
-                <%= link_to 'Back to search page', results_path, class: 'button-pink'%>
+                <%= link_to 'Back to search page', results_path, class: 'btn btn-primary button-green'%>
               </div>
               <% unless @community.playlist.present? && @community.user_id == current_user.id %>
                 <div class='col-sm'>
@@ -28,10 +28,7 @@
               <% end %>
               <% if @community.user_id == current_user.id %>
               <div class='col-sm'>
-                <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'button-destroy'%>
-
-
-         
+                <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>        
               </div>
               <% end %>
             </div>
@@ -39,7 +36,7 @@
               <h4>Please, add your message to interact here! </h4>
               <%= simple_form_for [@community, @message] do |f| %>
                 <%= f.input :content, label: false%>
-                <%= f.submit "Publish", class: 'button-pink mt-0 mb-3' %>
+                <%= f.submit "Publish", class: 'btn btn-primary button-green mt-0 mb-3' %>
               <% end %>
             </div>
           </div>
