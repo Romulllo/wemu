@@ -5,86 +5,89 @@
       <p><%=@community.description.capitalize %></p>
     </div>
   </div>
-  <div class='container' >
-  <div class="row">
-    <div class="col-md mr-5">
-      <div class="container mt-5 text-center">
-        <% if @current_membership.exists? == false %>
-          <%= simple_form_for [@community, @membership] do |f| %>
-            <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
-            <%= f.submit "Join this community!", class: 'btn btn-primary button-green' %>
-          <% end %>
-          <%= link_to "Go back to search page",results_path, class: "btn btn-outline-dark mb-3" %>
-        <% else %>
-          <div class="h4-com-show">
-            <div class='row mb-4'>
-              <div class='col-sm'>
-                <%= link_to 'Back to search page', results_path, class: 'btn btn-primary button-green'%>
-              </div>
-              <% unless @community.playlist.present? && @community.user_id == current_user.id %>
+  <div class='container'>
+    <div class="row">
+      <div class="col-md mr-5">
+        <div class="container mt-5 text-center">
+          <% if @current_membership.exists? == false %>
+            <%= simple_form_for [@community, @membership] do |f| %>
+              <h3>Hey, music fan! =) Please, join the community to interact with all these <%= @community.name %> fans below! </h3>
+              <%= f.submit "Join this community!", class: 'btn btn-primary button-green mt-3' %>
+            <% end %>
+            <%= link_to "Go back to search page",results_path, class: "btn btn-primary button-green mt-3" %>
+          <% else %>
+            <div class="h4-com-show">
+              <div class='row mb-4'>
                 <div class='col-sm'>
-                  <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'button-pink' %>
+                  <%= link_to 'Back to search page', results_path, class: 'btn btn-primary button-green'%>
                 </div>
-              <% end %>
-              <% if @community.user_id == current_user.id %>
-              <div class='col-sm'>
-                <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>        
-              </div>
-              <% end %>
-            </div>
-            <div class="container px-0">
-              <h4>Please, add your message to interact here! </h4>
-              <%= simple_form_for [@community, @message] do |f| %>
-                <%= f.input :content, label: false%>
-                <%= f.submit "Publish", class: 'btn btn-primary button-green mt-0 mb-3' %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <% @community.messages.order(created_at: :desc).each do |message|%>
-        <div class=" container container-messages">
-          <%= link_to user_path(message.user.id) do %>
-            <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages"%>
-            <p><strong><%=message.user.first_name%></strong></p>
-          <% end %>
-          <p><%= message.content.capitalize %></p>
-          <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
-        </div>
-    <% end  %>
-    </div>
-
-    <% if @community.playlist.present? %>
-      <div class="col-sm mt-5 ml-5">
-        <div class="row" style='justify-content: center'>
-          <form class='form-inline'>
-            <%= form_tag community_path(@community), method: :get do %>
-              <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                placeholder: "Find a music"
-              %>
-            <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
-          </form>
-            <% end %>
-        </div>
-        <% if @track_items.present? %>
-          <div class='col-sm mt-2 search-music'>
-            <% @track_items[0].each do |item| %>
-              <div class='row mb-2'>
-                <% music_uri = item['uri']%>
-                <%= link_to community_add_track_playlist_path(community_id: @community.id, :item => music_uri ) do %>
-                  <i class="fas fa-plus-circle mr-3" style='font-size: 30px'></i>
+                <% unless @community.playlist.present? && @community.user_id == current_user.id %>
+                  <div class='col-sm'>
+                    <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'btn btn-primary button-green' %>
+                  </div>
                 <% end %>
-                <p class='mb-0 pt-1'><%= item['name']%> - <%=item['artists'][0]['name']%></p>
+                <% if @community.user_id == current_user.id %>
+                <div class='col-sm'>
+                  <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>        
+                </div>
+                <% end %>
               </div>
+              <div class="container px-0">
+                <h4>Please, add your message to interact here! </h4>
+                <%= simple_form_for [@community, @message] do |f| %>
+                  <%= f.input :content, label: false%>
+                  <%= f.submit "Publish", class: 'btn btn-primary button-green mt-0 mb-3' %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% @community.messages.order(created_at: :desc).each do |message|%>
+          <div class=" container container-messages">
+            <%= link_to user_path(message.user.id) do %>
+              <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages"%>
+              <p><strong><%=message.user.first_name%></strong></p>
             <% end %>
+            <p><%= message.content.capitalize %></p>
+            <div class="time-right"><%=message.created_at.strftime("Posted at %d/%m/%Y, %I:%M%p")%></div>
           </div>
         <% end %>
-        <iframe src=<%= "https://open.spotify.com/embed/playlist/#{@community.playlist}" %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </div>
-    <% end %>
-  </div>
-</div>
 
+      <% if @community.playlist.present? %>
+        <div class="col-sm mt-5 ml-5">
+          <% if @community.user_id == current_user.id %>
+            <div class="row h4-com-show" style='justify-content: center'>
+            <h4>Search for music to add to your playlist</h4>
+              <form class='form-inline'>
+                <%= form_tag community_path(@community), method: :get do %>
+                  <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                    placeholder: "Find a music"
+                  %>
+                <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
+              </form>
+                <% end %>
+            </div>
+            <% if @track_items.present? %>
+              <div class='col-sm mt-5 search-music h4-com-show'>
+                <h4 class='mb-3'>Add music to playlist:</h4>
+                <% @track_items[0].each do |item| %>
+                  <div class='row mb-2'>
+                    <% music_uri = item['uri']%>
+                    <%= link_to community_add_track_playlist_path(community_id: @community.id, :item => music_uri ) do %>
+                      <i class="fas fa-plus-circle mr-3" style='font-size: 30px'></i>
+                    <% end %>
+                    <p class='mb-0 pt-1'><%= item['name']%> - <%=item['artists'][0]['name']%></p>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
+          <iframe class='playlist-box' src=<%= "https://open.spotify.com/embed/playlist/#{@community.playlist}" %> frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>

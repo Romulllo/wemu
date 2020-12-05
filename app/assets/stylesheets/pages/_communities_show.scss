@@ -32,7 +32,6 @@ h3 {
   margin: 10px 0;
 }
 
-
 /* Darker chat container */
 .darker {
   border-color: #ccc;
@@ -58,7 +57,7 @@ h3 {
 .container-messages p {
   padding: 2px;
   margin: 2px;
-  color: $wemu-green;
+  color: $wemu-white;
 }
 
 .time-right {
@@ -80,20 +79,29 @@ h3 {
 
 textarea {
   background-color: $wemu-white !important;
-  border-color: $wemu-green !important;
+  border-color: $wemu-white !important;
 }
 
 input.string {
-  background-color: $wemu-green !important;
+  background-color: $wemu-white !important;
   border-color: $wemu-green !important;
+  color: $wemu-white !important;
 }
 
-.iframe {
-  margin-top: 50px;
-  width: 100%;
-  position: sticky;
-  top: 60px;
-  height: calc(100vh - 90px);
+label.string{
+  color: $wemu-white !important;
+}
+
+label.text{
+  color: $wemu-white !important;
+}
+
+label.file{
+  color: $wemu-white !important;
+}
+
+input.file{
+  color: $wemu-white !important;
 }
 
 .btn-search {
@@ -113,4 +121,12 @@ input.string {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+}
+
+.playlist-box {
+  margin-top: 50px;
+  position: sticky;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 90px);
 }

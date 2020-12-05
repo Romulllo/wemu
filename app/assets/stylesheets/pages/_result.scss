@@ -1,5 +1,5 @@
 main {
-  background-color: $wemu-green !important;
+  background-color: black !important;
 }
 
 .album {
@@ -7,7 +7,7 @@ main {
 }
 
 .jumbotron {
-  background-color: $wemu-green !important;
+  background-color: black !important;
   padding-bottom: 0px !important;
 
   h1 {
@@ -17,6 +17,7 @@ main {
     font-variant: small-caps;
     line-height: 70px;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+    margin-top:60px;
   }
   p {
     color: $wemu-green;
@@ -31,14 +32,14 @@ main {
   background-color: $wemu-green;
 
   h2 {
-    color: $wemu-green;
+    color: $wemu-white;
     font-variant: small-caps;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
   }
 
   p {
     height: 50px;
-    color: $wemu-green;
+    color: $wemu-white;
     max-height: 50px;
     overflow: hidden;
     white-space: nowrap;
@@ -48,13 +49,14 @@ main {
 
 .btn-outline-secondary {
   font-weight: bold !important;
-  color: $wemu-green !important;
-  border-color: $wemu-green !important;
+  color: $wemu-white !important;
+  border-color: $wemu-white !important;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) !important;
 }
 
 .btn-outline-secondary:hover {
-  color: $wemu-green !important;
+  color: black !important;
   background-color: $wemu-green !important;
-  border-color: $wemu-green !important;
+  border-color: black !important;
 }
+
