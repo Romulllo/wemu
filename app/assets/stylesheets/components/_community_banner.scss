@@ -10,7 +10,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $wemu-pink;
+    color: $wemu-green;
     text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 
     h1 {
@@ -19,7 +19,10 @@
     }
 
     p {
-      font-size: 40px;
+      margin-top: 30px;
+      font-size: 30px;
+      font-style: italic;
+      text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
     }
   }
 }

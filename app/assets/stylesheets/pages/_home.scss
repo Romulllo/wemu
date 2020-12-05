@@ -7,10 +7,9 @@
   align-items: center;
   text-align: center;
   height: 80vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 2.5), rgba(0, 0, 0, 0.5)), url("back_and_white.jpg");
-
+  background-image: linear-gradient(rgba(0, 0, 0, 2.5), rgba(0, 0, 0, 0.5)),
+    url("back_and_white.jpg");
 }
-
 
 .banner-content {
   padding: 3cm;
@@ -18,13 +17,13 @@
 }
 
 .banner h1 {
-  text-transform: none;
   font-size: 280px;
   font-weight: 500;
   font-variant: small-caps;
   line-height: 70px;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
   margin-bottom: 180px;
+  margin-top: 80px;
   color: $wemu-green;
 }
 .banner p {
@@ -71,23 +70,25 @@
 
 .fas {
   font-size: 90px;
+  color: $wemu-green;
 }
 
 .far {
   font-size: 90px;
 }
 
-.col-lg-4 h2{
-  color:$wemu-white;
-  margin-bottom:5px;
+.col-lg-4 h2 {
+  color: $wemu-white;
+  margin-bottom: 5px;
 }
 
-.col-lg-4 p,h5{
-  color:$wemu-white;
-  margin-bottom:5px;
+.col-lg-4 p,
+h5 {
+  color: $wemu-white;
+  margin-bottom: 5px;
 }
 
-.col-md-7 h2, p{
+.col-md-7 h2,
+p {
   color: $wemu-white;
 }
-
