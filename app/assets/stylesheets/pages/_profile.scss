@@ -117,6 +117,8 @@ body {
 }
 
 .card-userinformation{
+  max-height: 200px;
+  height: 100%;
   padding-top: 20px;
   padding-right: 30px;
   color: $wemu-green;
@@ -126,7 +128,34 @@ body {
   p{
     font-size: 20px
   }
+}
 
+.card-small-community {
+  background-color: $wemu-green;
+
+  p {
+    height: 50px;
+    color: $wemu-green;
+    max-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.card-small-img-top{
+  width: 120px;
+  height: 120px;
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+.card-small-body{
+  width: 120px;
+  text-align: center;
+  p{
+    color: $wemu-white;
+  }
 }
 
 .user-informations{
@@ -140,8 +169,15 @@ body {
   color: $wemu-green;
 }
 
-.time-right {
+.show-messages{
+  justify-content: center !important;
+  text-align: -webkit-center;
+  padding-top: 30px;
+  h3{
+    font-weight: bold;
+  }
 }
+
 
 .show-messages-text{
   border: 2px solid $wemu-green;
@@ -149,6 +185,9 @@ body {
   border-radius: 5px;
   padding: 3px;
   margin: 10px 0;
+  max-width: 600px;
+  width: 100%;
+
   color: $wemu-green;
   a{
     color: $wemu-green;
