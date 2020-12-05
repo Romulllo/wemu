@@ -57,7 +57,7 @@ h3 {
 .container-messages p {
   padding: 2px;
   margin: 2px;
-  color: $wemu-green;
+  color: $wemu-white;
 }
 
 .time-right {
@@ -79,12 +79,29 @@ h3 {
 
 textarea {
   background-color: $wemu-white !important;
-  border-color: $wemu-green !important;
+  border-color: $wemu-white !important;
 }
 
 input.string {
-  background-color: $wemu-green !important;
+  background-color: $wemu-white !important;
   border-color: $wemu-green !important;
+  color: $wemu-white !important;
+}
+
+label.string{
+  color: $wemu-white !important;
+}
+
+label.text{
+  color: $wemu-white !important;
+}
+
+label.file{
+  color: $wemu-white !important;
+}
+
+input.file{
+  color: $wemu-white !important;
 }
 
 .btn-search {

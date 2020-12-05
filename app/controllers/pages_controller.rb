@@ -20,12 +20,17 @@ class PagesController < ApplicationController
   def home
     @skills = Community.pluck(:name).sort
 
+    @communities_auto = Community.pluck(:name).sort
   end
 
   def landing
   end
 
   def profile
+  end
+
+  def home
+    @communities_auto = Community.pluck(:name).sort
   end
 
   def follow
