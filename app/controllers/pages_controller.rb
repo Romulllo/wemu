@@ -8,17 +8,11 @@ class PagesController < ApplicationController
     # @communities = Community.where("name ILIKE ?", params[:query])
       @communities = Community.search_by_name(params[:query])
       @profiles = User.search_by_name(params[:query])
-      
+
     else
       @communities = Community.all
       @profiles = User.all
     end
-    
-    @skills = Community.pluck(:name).sort
-  end
-
-  def home
-    @skills = Community.pluck(:name).sort
 
     @communities_auto = Community.pluck(:name).sort
   end
