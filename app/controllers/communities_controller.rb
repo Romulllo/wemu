@@ -48,13 +48,13 @@ class CommunitiesController < ApplicationController
     redirect_to home_path
   end
 
-  def create_playlist    
+  def create_playlist
     playlist = RestClient.post("https://api.spotify.com/v1/users/#{current_user.uid}/playlists", {
       "name": "#{@community.name}",
       "description": "#{@community.description}",
       "public": true
     }.to_json, { Authorization: "Bearer #{current_user.token}", accept: :json })
-    
+
     response = JSON.parse(playlist)
     playlist_spotify = ''
     playlist_spotify << response['id']
@@ -65,18 +65,7 @@ class CommunitiesController < ApplicationController
     redirect_to community_path(@community)
   end
 
-  def search_track(search_field)
-    if search_field.present?
-    response = RestClient.get("https://api.spotify.com/v1/search?q=#{search_field}&type=track&market=US&limit=3", { Authorization: "Bearer #{current_user.token}", accept: :json })
-    response_search = JSON.parse(response)
-
-    track_items = []
-
-    track_items << response_search['tracks']['items']
-    end
-  end
-
-  def add_track_playlist    
+  def add_track_playlist
     RestClient.post("https://api.spotify.com/v1/playlists/#{@community.playlist}/tracks?position=0&uris=#{params[:item]}", {}.to_json, { Authorization: "Bearer #{current_user.token}", accept: :json })
 
     redirect_to community_path(@community)
@@ -92,4 +81,17 @@ class CommunitiesController < ApplicationController
   def community_params
     params.require(:community).permit(:name, :description, :photo, :playlist)
   end
+
+
+  def search_track(search_field)
+    if search_field.present?
+    response = RestClient.get("https://api.spotify.com/v1/search?q=#{search_field}&type=track&market=US&limit=3", { Authorization: "Bearer #{current_user.token}", accept: :json })
+    response_search = JSON.parse(response)
+
+    track_items = []
+
+    track_items << response_search['tracks']['items']
+    end
+  end
+
 end

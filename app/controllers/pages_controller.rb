@@ -14,12 +14,17 @@ class PagesController < ApplicationController
       @profiles = User.all
     end
 
+    @communities_auto = Community.pluck(:name).sort
   end
 
   def landing
   end
 
   def profile
+  end
+
+  def home
+    @communities_auto = Community.pluck(:name).sort
   end
 
   def follow
