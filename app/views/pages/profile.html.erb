@@ -117,12 +117,12 @@
         <% end %>
         <% messages.sort_by(&:created_at).reverse! %>
         <% messages.each do |message| %>
-          <div class="show-messages-text d-flex pt-4 pb-1">
+          <div class="show-messages-text d-flex">
             <%= link_to user_path(message.user.id) do %>
               <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
             <% end %>
             <div>
-              <div class="d-flex">
+              <div class="messages-text-box d-flex">
                 <%= link_to user_path(message.user.id) do %>
                   <p><strong><%=message.user.first_name%></strong></p>
                 <% end %>

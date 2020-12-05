@@ -137,17 +137,35 @@ body {
   height: 70px;
   border: none;
   border-radius: 100%;
+  color: $wemu-green;
 }
 
 .time-right {
 }
 
 .show-messages-text{
-   p{
-   } 
+  border: 2px solid $wemu-green;
+  background-color: $wemu-white;
+  border-radius: 5px;
+  padding: 3px;
+  margin: 10px 0;
+  color: $wemu-green;
+  a{
+    color: $wemu-green;
+  }
+  p{
+    color: $wemu-green;
+  }
+}
+
+.messages-text-box{
+  padding: 5px;
+  padding-left: 20px;
 }
 
 .message-content{
-  font-size: 20px;
+  font-size: 15px;
+  color: $wemu-green;
+  padding-left: 20px;
 
 }
