@@ -87,14 +87,6 @@ input.string {
   border-color: $wemu-green !important;
 }
 
-.iframe-playlist {
-  margin-top: 50px;
-  width: 100%;
-  position: sticky;
-  top: 60px;
-  height: calc(100vh - 90px);
-}
-
 .btn-search {
   background-color: $wemu-green !important;
   border-color: $wemu-green !important;
@@ -112,4 +104,12 @@ input.string {
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+}
+
+.playlist-box {
+  margin-top: 50px;
+  position: sticky;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 90px);
 }

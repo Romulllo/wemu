@@ -24,12 +24,13 @@ require("channels")
 // External imports
 import "bootstrap";
 
-
 // Internal imports, e.g:
 import { toogleTab } from '../components/tabs_index';
+import { autocompleteSearch } from '../components/autocomplete';
 
 document.addEventListener('turbolinks:load', () => {
-	toogleTab();
+  toogleTab();
+  autocompleteSearch();
   // Call your functions here, e.g:
   // initSelect2();
 });
