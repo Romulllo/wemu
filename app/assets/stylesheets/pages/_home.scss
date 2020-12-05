@@ -58,9 +58,10 @@
 .btn-secondary {
   background-color: $wemu-green !important;
   border-radius: 3px;
-  color: $wemu-green !important;
+  color: $wemu-white !important;
   border-color: $wemu-green !important;
   text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
 }
 
 .btn-secondary:hover {
@@ -78,9 +79,10 @@
 }
 
 .col-lg-4 h2 {
-  color: $wemu-white;
+  color: $wemu-green;
   margin-bottom: 5px;
 }
+
 
 .col-lg-4 p,
 h5 {
@@ -88,7 +90,12 @@ h5 {
   margin-bottom: 5px;
 }
 
-.col-md-7 h2,
+.col-md-7,
 p {
   color: $wemu-white;
+}
+
+.col-md-7,
+h2 {
+  color: $wemu-green;
 }
