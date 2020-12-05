@@ -66,12 +66,14 @@ class CommunitiesController < ApplicationController
   end
 
   def search_track(search_field)
+    if search_field.present?
     response = RestClient.get("https://api.spotify.com/v1/search?q=#{search_field}&type=track&market=US&limit=3", { Authorization: "Bearer #{current_user.token}", accept: :json })
     response_search = JSON.parse(response)
 
     track_items = []
 
     track_items << response_search['tracks']['items']
+    end
   end
 
   def add_track_playlist    
