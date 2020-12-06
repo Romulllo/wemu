@@ -24,20 +24,36 @@
 
   <div class="container">
 
-    <% @profiles.first(3).each do |profile| %>
-      <div class='row'>
-        <div class='col-md-4'>
-          <div class="card mb-4 shadow-sm">
-            <img src="img_avatar.png" alt="Avatar">
-            <%= profile.first_name %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+    <div class='row'>
+      <% if @profiles != nil %>
+        <% @profiles.order(created_at: :desc).each do |profile| %>
+            <div class='col-md-4'>
+              <div class="card mb-4 shadow-sm">
+                <%= image_tag profile.spotify_picture_url, alt: "spotify", class: "card-img-top", width: "100%", height:"225" %>
+                <div class="card-body">
+                  <h2 class="mb-4"><%= profile.first_name %></h2>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <%= link_to user_path(profile.id), method: 'get' do %>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary">View profile</button>
+                      <% end %>
+                    </div>
+                    <div>
+                      <small class="members-text">Has created <%= profile.communities.count%> communities </small> <br>
+                      <small class="members-text">Has joined <%= Membership.where(user:profile).count%> communities </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
 
     <div class="row">
 
-      <% @communities.each do |community| %>
+      <% @communities.order(created_at: :desc).each do |community| %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
 
