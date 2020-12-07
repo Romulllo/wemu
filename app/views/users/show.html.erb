@@ -23,21 +23,21 @@
       </div>
       <div class="user-informations">
         <h1 class="user-name text-center"><%= @user.first_name %></h1>
+        <div data-user=<%= @user.id%> class="text-center">
+          <% if @user != current_user %>
+            <% if current_user.is_following?(@user.id) %>
+              <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "button-pink justify-content-sm-center" %>
+            <% else %>
+              <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "button-pink justify-content-sm-center" %>
+            <% end %>
+          <% end %>
+        </div>
         <h3 class="user-song text-center">Just listened:
         </h3>
       </div>
       <iframe class="user-frame" src="https://open.spotify.com/embed/track/<%= @user.last_songs_identifiers[0] %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-      <div id="top-artists" class="">
-        <h2 class="title-profile">Top Artists</h2>
-        <ol class="list">
-          <% @user.top_artists.each_with_index do |artist, index| %>
-            <%= link_to @user.link_artists[index], class: "link-tops" do %>
-            <li><strong><%= artist %></strong></li>
-            <% end %>
-          <% end %>
-        </ol>
-      </div>
+      
       <div id="top-songs" class="">
         <h2 class="title-profile">Top Songs</h2>
           <ol class="list">
@@ -48,10 +48,20 @@
             <% end %>
           </ol>
       </div>
+      <div id="top-artists" class="">
+        <h2 class="title-profile">Top Artists</h2>
+        <ol class="list">
+          <% @user.top_artists.each_with_index do |artist, index| %>
+            <%= link_to @user.link_artists[index], class: "link-tops" do %>
+            <li><strong><%= artist %></strong></li>
+            <% end %>
+          <% end %>
+        </ol>
+      </div>
     </div>
     <div class="col-9 container-right">
       <div id="informations" class="d-flex justify-content-center">
-        <div class="card-userinformation  p-2">
+        <div class="card-userinformation p-2">
           <h3>Followers</h3>
           <p>121</p>
         </div>
@@ -67,17 +77,7 @@
           <h3>Playlists</h3>
           <p>10</p>
         </div>
-        <div class="card-userinformation  p-2">
-          <div data-user=<%= @user.id%> class="text-center">
-            <% if @user != current_user %>
-              <% if current_user.is_following?(@user.id) %>
-                <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "button-pink justify-content-sm-center" %>
-              <% else %>
-                <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "button-pink justify-content-sm-center" %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
+        
       </div>          
       <div>
         <div class="tabs">
@@ -97,7 +97,7 @@
               <%= link_to community_path(community), method: 'get' do %>
                 <div class="card-small-community shadow-sm p-1">
                   <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
-                  <div class="card-small-body">
+                  <div class="card-small-body justify-content-center">
                     <p class="mb-0"><%= community.name %></p>
                   </div>
                 </div>
