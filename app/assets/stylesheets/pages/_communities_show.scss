@@ -48,8 +48,8 @@ h3 {
 /* Style images */
 .container-messages img {
   float: left;
-  max-width: 80px;
-  width: 100%;
+  width: 80px;
+  height: 80px;
   margin-right: 20px;
   border-radius: 50%;
 }
@@ -57,7 +57,7 @@ h3 {
 .container-messages p {
   padding: 2px;
   margin: 2px;
-  color: $wemu-white;
+  color: $wemu-green;
 }
 
 .time-right {
@@ -94,19 +94,19 @@ input.string {
   color: $wemu-white !important;
 }
 
-label.string{
+label.string {
   color: $wemu-white !important;
 }
 
-label.text{
+label.text {
   color: $wemu-white !important;
 }
 
-label.file{
+label.file {
   color: $wemu-white !important;
 }
 
-input.file{
+input.file {
   color: $wemu-white !important;
 }
 

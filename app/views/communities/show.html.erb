@@ -21,7 +21,7 @@
                 <div class='col-sm'>
                   <%= link_to 'Back to search page', results_path, class: 'btn btn-primary button-green'%>
                 </div>
-                <% unless @community.playlist.present? && @community.user_id == current_user.id %>
+                <% if @community.playlist.present? == false && @community.user_id == current_user.id %>
                   <div class='col-sm'>
                     <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'btn btn-primary button-green' %>
                   </div>
