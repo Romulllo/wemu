@@ -7,8 +7,6 @@
   align-items: center;
   text-align: center;
   height: 80vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 2.5), rgba(0, 0, 0, 0.5)),
-    url("back_and_white.jpg");
   background-position: center;
 }
 
@@ -115,4 +113,8 @@ h2 {
 
 .featurette-divider {
   background-color: $wemu-green;
+}
+
+html {
+  scroll-behavior: smooth;
 }
