@@ -40,13 +40,13 @@ class User < ApplicationRecord
     # spotify_countries = []
     # spotify_followers = []
 
-    response_2 = RestClient.get('https://api.spotify.com/v1/me/top/artists?limit=10', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    response_2 = RestClient.get('https://api.spotify.com/v1/me/top/artists?limit=10&time_range=medium_term', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
     spotify_response_top_artists = JSON.parse(response_2)
     spotify_top_artists = []
     spotify_link_artists = []
     spotify_link_album_top_artists = []
 
-    response_3 = RestClient.get('https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=long_term', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
+    response_3 = RestClient.get('https://api.spotify.com/v1/me/top/tracks?limit=10&time_range=medium_term', { Authorization: "Bearer #{user_params[:token]}", accept: :json })
     spotify_response_top_songs = JSON.parse(response_3)
     spotify_top_songs = []
     spotify_link_songs = []
