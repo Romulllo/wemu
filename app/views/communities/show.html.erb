@@ -26,6 +26,11 @@
                     <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'btn btn-primary button-green' %>
                   </div>
                 <% end %>
+                <% if @community.playlist.present? && @community.user_id != current_user.id %>
+                  <div class='col-sm'>
+                    <%= link_to 'Add Playlist to Spotify', '#', class: 'btn btn-primary button-green' %>
+                  </div>
+                <% end %>              
                 <% if @community.user_id == current_user.id %>
                 <div class='col-sm'>
                   <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>        
