@@ -19,7 +19,10 @@ class User < ApplicationRecord
     user_params.merge! auth.info.slice("email", "first_name", "last_name")
     user_params[:first_name] = auth.extra.raw_info.display_name
     user_params[:nickname] = auth.info.nickname
-    user_params[:spotify_picture_url] = auth.info.image
+
+    # see if you are pulling the image, when there is no image. Important !!
+    user_params[:spotify_picture_url] = auth.info.image ? auth.info.image : "profile.jpg"
+
     user_params[:token] = auth.credentials.token
     user_params[:token_expiry] = Time.at(auth.credentials.expires_at)
     time = Time.now.getutc
