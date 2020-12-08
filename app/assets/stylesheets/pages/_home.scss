@@ -9,6 +9,7 @@
   height: 80vh;
   background-image: linear-gradient(rgba(0, 0, 0, 2.5), rgba(0, 0, 0, 0.5)),
     url("back_and_white.jpg");
+  background-position: center;
 }
 
 .banner-content {
@@ -83,7 +84,6 @@
   margin-bottom: 5px;
 }
 
-
 .col-lg-4 p,
 h5 {
   color: $wemu-white;
@@ -98,4 +98,10 @@ p {
 .col-md-7,
 h2 {
   color: $wemu-green;
+}
+
+.featurette {
+  img {
+    object-fit: cover;
+  }
 }
