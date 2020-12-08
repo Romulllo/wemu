@@ -153,7 +153,7 @@
             <%= link_to user_path(message.user.id) do %>
               <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
             <% end %>
-            <div>
+            <div class='px-2'>
               <div class="messages-text-box d-flex">
                 <%= link_to user_path(message.user.id) do %>
                   <p><strong><%=message.user.first_name%></strong></p>
@@ -164,7 +164,7 @@
                 <% end %>
                 <p class="pl-1 time-right1"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
               </div>
-              <div>
+              <div class='pl-1'>
                 <p class="message-content"><%= message.content.capitalize %></p>
               </div>
             </div>
