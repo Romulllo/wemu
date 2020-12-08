@@ -3,7 +3,7 @@
     <h1>WeMu</h1>
     <p>Search for communities and friends based on your music taste!</p>
       <%= form_tag results_path, method: 'get' do %>
-        <div id= "search-data" class="form-search search-data mb-5" data-communities_auto="<%= @communities_auto.to_json %>">
+        <div id= "search-data" class="form-search search-data mb-5" data-communities_auto="<%= @communities_auto.to_json %>" data-users_auto="<%= @users_auto.to_json %>">
             <%= text_field_tag :query, nil, autocomplete: :off, class: "form-control search-input", placeholder: "Mastodon, rock,..." %>
             <%= submit_tag "Search", class: "button-pink-search" %>
         </div>
