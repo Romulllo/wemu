@@ -3,54 +3,53 @@ body {
   background-size: cover;
 }
 
-.banner-profile{
+.banner-profile {
   height: 300px;
   width: 100%;
   background: linear-gradient(rgba(200, 200, 0, 0.5), rgba(0, 0, 0, 0.5));
-  .img-medium{
+  .img-medium {
     height: 300px;
   }
 }
 
 .profile-picture {
-	border-radius: 100%;
-	overflow: hidden;
-	-webkit-box-sizing: content-box;
+  border-radius: 100%;
+  overflow: hidden;
+  -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   position: absolute;
   top: -80px;
 }
-	.big-profile-picture {
-		border: 5px solid $wemu-green;
-		width: 250px;
-		height: 250px;
-	}
+.big-profile-picture {
+  border: 5px solid $wemu-green;
+  width: 250px;
+  height: 250px;
+}
 
-
-.container-baixo{
-	font-family: "Montserrat", "Helvetica", "sans-serif";
-	padding: 10px;
+.container-baixo {
+  font-family: "Montserrat", "Helvetica", "sans-serif";
+  padding: 10px;
 }
 
 .container-cima {
-	font-family: "Montserrat", "Helvetica", "sans-serif";
-	color: #f7d1ba;
-	padding: 10px;
+  font-family: "Montserrat", "Helvetica", "sans-serif";
+  color: #f7d1ba;
+  padding: 10px;
 }
 
-.container-left{
+.container-left {
   position: relative;
 }
 
 .title-profile {
-	font-family: "lato", "Helvetica", "sans-serif";
-	color: $wemu-green;
+  font-family: "lato", "Helvetica", "sans-serif";
+  color: $wemu-green;
 }
 
 .user-name {
-	font-family: "lato", "Helvetica", "sans-serif";
-	color: $wemu-green;
+  font-family: "lato", "Helvetica", "sans-serif";
+  color: $wemu-green;
   font-size: 30px;
   padding-top: 10px;
 }
@@ -64,18 +63,17 @@ body {
   font-weight: bold;
 }
 
-#top-artists{
+#top-artists {
   padding-top: 15px;
-  padding-bottom: 30px;  
+  padding-bottom: 30px;
 }
 
-#top-songs{
+#top-songs {
   padding-top: 30px;
   padding-bottom: 15px;
 }
 
-
-.user-frame{
+.user-frame {
   width: 100%;
   margin: 0 auto;
 }
@@ -89,43 +87,65 @@ body {
 }
 
 @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
-.link-tops{
+.link-tops {
   color: $wemu-white;
   &:hover {
-    color:pink;
+    color: pink;
     background-color: purple;
     text-decoration: none;
   }
 }
 
-.informations{
+.informations {
   padding-top: 30px;
 }
 
-.card-userinformation{
+.card-userinformation {
   max-height: 200px;
   height: 100%;
   padding-top: 20px;
   padding-right: 30px;
   color: $wemu-green;
-  h3{
-    font-size: 15px
+  h3 {
+    font-size: 15px;
   }
-  p{
-    font-size: 20px
+  p {
+    font-size: 20px;
   }
 }
 
@@ -141,41 +161,39 @@ body {
     text-overflow: ellipsis;
   }
 
-  a{
+  a {
     padding: 2px;
   }
 }
 
-.card-small-img-top{
+.card-small-img-top {
   width: 120px;
   height: 120px;
-  padding-right: 1px;
-  padding-left: 1px;
 }
 
-.card-small-body{
+.card-small-body {
   width: 120px;
   text-align: center;
-  p{
+  p {
     color: $wemu-green;
   }
 }
 
-.user-informations{
+.user-informations {
   padding-top: 170px;
 }
 
-#informations{
+#informations {
   text-align-last: center;
 }
 
-.cards-comumnities-show{
-    text-align: center;
-    padding-top: 100px;	
-    h3{
+.cards-comumnities-show {
+  text-align: center;
+  padding-top: 100px;
+  h3 {
     font-weight: bold;
     padding-bottom: 80px;
-    }
+  }
 }
 
 .container-messages-profile {
@@ -185,17 +203,16 @@ body {
   color: $wemu-green;
 }
 
-.show-messages{
+.show-messages {
   justify-content: center !important;
   text-align: -webkit-center;
   padding-top: 30px;
-  h3{
+  h3 {
     font-weight: bold;
   }
 }
 
-
-.show-messages-text{
+.show-messages-text {
   border: 2px solid $wemu-green;
   background-color: $wemu-white;
   border-radius: 5px;
@@ -205,25 +222,23 @@ body {
   width: 100%;
 
   color: $wemu-green;
-  a{
+  a {
     color: $wemu-green;
     padding: 4px;
   }
-  p{
+  p {
     color: $wemu-green;
   }
 }
 
-.messages-text-box{
+.messages-text-box {
   padding: 5px;
   padding-left: 5px;
   font-size: 12px;
-
 }
 
-.message-content{
+.message-content {
   font-size: 15px;
   color: $wemu-green;
   padding-left: 20px;
-
 }
