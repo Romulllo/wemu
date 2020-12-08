@@ -168,8 +168,6 @@ body {
 .card-small-img-top {
   width: 120px;
   height: 120px;
-  padding-right: 1px;
-  padding-left: 1px;
 }
 
 .card-small-body {
@@ -199,6 +197,7 @@ body {
   justify-content: center !important;
   text-align: -webkit-center;
   padding-top: 30px;
+
   h3 {
     font-weight: bold;
   }
@@ -224,13 +223,14 @@ body {
 }
 
 .messages-text-box {
-  padding: 5px;
-  padding-left: 5px;
   font-size: 12px;
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .message-content {
   font-size: 15px;
   color: $wemu-green;
-  padding-left: 20px;
+  text-align: start;
 }

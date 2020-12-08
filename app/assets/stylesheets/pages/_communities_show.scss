@@ -48,8 +48,8 @@ h3 {
 /* Style images */
 .container-messages img {
   float: left;
-  max-width: 80px;
-  width: 100%;
+  width: 80px;
+  height: 80px;
   margin-right: 20px;
   border-radius: 50%;
 }
@@ -57,7 +57,7 @@ h3 {
 .container-messages p {
   padding: 2px;
   margin: 2px;
-  color: $wemu-white;
+  color: $wemu-green;
 }
 
 .time-right {
@@ -94,25 +94,27 @@ input.string {
   color: $wemu-white !important;
 }
 
-label.string{
+label.string {
   color: $wemu-white !important;
 }
 
-label.text{
+label.text {
   color: $wemu-white !important;
 }
 
-label.file{
+label.file {
   color: $wemu-white !important;
 }
 
-input.file{
+input.file {
   color: $wemu-white !important;
 }
 
 .btn-search {
   background-color: $wemu-green !important;
   border-color: $wemu-green !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 .btn-search:hover {
@@ -135,4 +137,9 @@ input.file{
   top: 60px;
   width: 100%;
   height: calc(100vh - 90px);
+}
+
+.form-search {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
 }

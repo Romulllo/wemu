@@ -21,11 +21,16 @@
                 <div class='col-sm'>
                   <%= link_to 'Back to search page', results_path, class: 'btn btn-primary button-green'%>
                 </div>
-                <% unless @community.playlist.present? && @community.user_id == current_user.id %>
+                <% if @community.playlist.present? == false && @community.user_id == current_user.id %>
                   <div class='col-sm'>
                     <%= link_to 'Create Playlist', community_create_playlist_path(community_id: @community.id), class: 'btn btn-primary button-green' %>
                   </div>
                 <% end %>
+                <% if @community.playlist.present? && @community.user_id != current_user.id %>
+                  <div class='col-sm'>
+                    <%= link_to 'Add Playlist to Spotify', '#', class: 'btn btn-primary button-green' %>
+                  </div>
+                <% end %>              
                 <% if @community.user_id == current_user.id %>
                 <div class='col-sm'>
                   <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>        
@@ -63,7 +68,7 @@
                 <%= form_tag community_path(@community), method: :get do %>
                   <%= text_field_tag :query,
                     params[:query],
-                    class: "form-control",
+                    class: "form-control form-search",
                     placeholder: "Find a music"
                   %>
                 <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
