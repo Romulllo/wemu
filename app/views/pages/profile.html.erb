@@ -82,7 +82,7 @@
             </li>
           </ul>
         </div>
-        <div id="my-communities">
+        <div id="my-communities" class="cards-comumnities-profile">
           <div class="d-flex justify-content-around align-items-md-center">
             <% count = 0  %>
             <% count_2 = 0  %>
@@ -92,7 +92,7 @@
                 <% count = 1 %>
                 <% count_2 += 1  %>
                 <%= link_to community_path(community), method: 'get' do %>
-                  <div class="card-small-community shadow-sm p-1">
+                  <div class="card-small-community shadow-sm">
                     <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
                     <div class="card-small-body">
                       <p class="mb-0"><%= community.name %></p>
@@ -105,7 +105,7 @@
               <% end  %>
             <% end %>
             <% if count == 0 %>
-              <p>Crie sua primeira comunidade</p>
+              <p>Create your first community</p>
             <% end %>
           </div>
         </div>
@@ -118,10 +118,10 @@
                 <% count = 1 %>
                 <% count_2 += 1  %>
                 <%= link_to community_path(membership.community), method: 'get' do %>
-                  <div class="card-small-community shadow-sm p-1">
+                  <div class="card-small-community shadow-sm">
                     <%= cl_image_tag membership.community.photo.key, class: "card-small-img-top" %>       
-                    <div class="card-small-body justify-content-center">
-                      <p class=""><%= membership.community.name %></p>
+                    <div class="card-small-body">
+                      <p class="mb-0"><%= membership.community.name %></p>
                     </div>
                   </div>
                 <% end %>
@@ -131,7 +131,7 @@
               <% end  %>
             <% end %>
             <% if count == 0 %>
-              <p>Participe da sua primeira comunidade</p>
+              <p>Join your first community</p>
             <% end %>   
           </div>
         </div>
@@ -139,12 +139,15 @@
 
 
       <div class="show-messages">
-        <h3>Stalking my communities</h3>
+        <h3>Stalking my communities and friends</h3>
         <% messages = [] %>
         <% current_user.memberships.limit(4).each do |membership|  %>
           <% messages.concat membership.community.messages.where("user_id != #{current_user.id}").order(created_at: :desc).limit(6) %>
         <% end %>
-        <% messages.sort_by(&:created_at).reverse! %>
+        <% current_user.following.each do |friend|  %>
+          <% messages.concat friend.messages.order(created_at: :desc).limit(1) %>
+        <%end %>
+        <% messages = messages.sort_by(&:created_at).reverse %>
         <% messages.each do |message| %>
           <div class="show-messages-text d-flex">
             <%= link_to user_path(message.user.id) do %>
@@ -155,11 +158,11 @@
                 <%= link_to user_path(message.user.id) do %>
                   <p><strong><%=message.user.first_name%></strong></p>
                 <% end %>
-                <p class="pl-1">posted at </p> 
+                <p class="pl-1 time-right1">posted at </p> 
                 <%= link_to community_path(message.community.id) do %>
                   <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
                 <% end %>
-                <p class="pl-1 time-right"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
+                <p class="pl-1 time-right1"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
               </div>
               <div>
                 <p class="message-content"><%= message.content.capitalize %></p>

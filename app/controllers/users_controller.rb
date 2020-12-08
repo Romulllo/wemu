@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   # end
 
   def show
+    if current_user == @user
+      redirect_to profile_path
+    end
   end
 
 

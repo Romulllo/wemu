@@ -80,22 +80,13 @@
         
       </div>          
       <div>
-        <div class="tabs">
-          <h3>Communities</h3>
-          <ul class="list-inline tabs-underlined w-100 justify-content-around">
-            <li>
-              <p class="tab-underlined active" id="tab1">My Own Communities</p>
-            </li>
-            <li>
-              <p class="tab-underlined" id="tab2">Participate In</p>
-            </li>
-          </ul>
-        </div>
-        <div id="my-communities">
+               
+        <div id="my-communities" class="cards-comumnities-show">
+          <h3>Communities</h3>     
           <div class="d-flex justify-content-around align-items-md-center">
             <% @user.communities.limit(6).each do |community|  %>
               <%= link_to community_path(community), method: 'get' do %>
-                <div class="card-small-community shadow-sm p-1">
+                <div class="card-small-community shadow-sm">
                   <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
                   <div class="card-small-body justify-content-center">
                     <p class="mb-0"><%= community.name %></p>
@@ -105,51 +96,38 @@
             <% end %>
           </div>
         </div>
-        <div id="participate-in" class="inactive-tab">
-          <div class="d-flex justify-content-around align-items-md-center">
-            <% @user.memberships.limit(6).each do |membership|  %>
-              <%= link_to community_path(membership.community), method: 'get' do %>
-                <div class="card-small-community shadow-sm p-1">
-                  <%= cl_image_tag membership.community.photo.key, class: "card-small-img-top" %>       
-                  <div class="card-small-body justify-content-center">
-                    <p class=""><%= membership.community.name %></p>
-                  </div>
-                </div>
-              <% end %>
-            <% end %>     
-          </div>
-        </div>
       </div>
 
 
       <div class="show-messages">
-        <h3>Stalking my communities</h3>
+        <h3>Stalking <%= @user.first_name.split(" ").first%>'s messages</h3>
         <% messages = [] %>
-        <% @user.memberships.limit(4).each do |membership|  %>
-          <% messages.concat membership.community.messages.where("user_id != #{@user.id}").order(created_at: :desc).limit(6) %>
+        <% @user.messages.order(created_at: :desc).limit(8).each do |message|  %>
+          <% messages << message %>
         <% end %>
-        <% messages.sort_by(&:created_at).reverse! %>
-        <% messages.each do |message| %>
-          <div class="show-messages-text d-flex">
-            <%= link_to user_path(message.user.id) do %>
-              <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
-            <% end %>
-            <div>
-              <div class="messages-text-box d-flex">
-                <%= link_to user_path(message.user.id) do %>
-                  <p><strong><%=message.user.first_name%></strong></p>
-                <% end %>
-                <p class="pl-1">posted at </p> 
-                <%= link_to community_path(message.community.id) do %>
-                  <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
-                <% end %>
-                <p class="pl-1 time-right"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
-              </div>
+        <% unless current_user.following.where("following_id = #{@user.id}").empty? %>
+          <% messages.each do |message| %>
+            <div class="show-messages-text d-flex">
+              <%= link_to user_path(message.user.id) do %>
+                <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
+              <% end %>
               <div>
-                <p class="message-content"><%= message.content.capitalize %></p>
+                <div class="messages-text-box d-flex">
+                  <%= link_to user_path(message.user.id) do %>
+                    <p><strong><%=message.user.first_name%></strong></p>
+                  <% end %>
+                  <p class="pl-1">posted at </p> 
+                  <%= link_to community_path(message.community.id) do %>
+                    <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
+                  <% end %>
+                  <p class="pl-1 time-right"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
+                </div>
+                <div>
+                  <p class="message-content"><%= message.content.capitalize %></p>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
