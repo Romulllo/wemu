@@ -27,17 +27,7 @@
         </h3>
       </div>
       <iframe class="user-frame" src="https://open.spotify.com/embed/track/<%= current_user.last_songs_identifiers[0] %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-
-      <div id="top-artists" class="">
-        <h2 class="title-profile">Top Artists</h2>
-        <ol class="list">
-          <% current_user.top_artists.each_with_index do |artist, index| %>
-            <%= link_to current_user.link_artists[index], class: "link-tops" do %>
-            <li><strong><%= artist %></strong></li>
-            <% end %>
-          <% end %>
-        </ol>
-      </div>
+      
       <div id="top-songs" class="">
         <h2 class="title-profile">Top Songs</h2>
           <ol class="list">
@@ -48,6 +38,17 @@
             <% end %>
           </ol>
       </div>
+      <div id="top-artists" class="">
+        <h2 class="title-profile">Top Artists</h2>
+        <ol class="list">
+          <% current_user.top_artists.each_with_index do |artist, index| %>
+            <%= link_to current_user.link_artists[index], class: "link-tops" do %>
+            <li><strong><%= artist %></strong></li>
+            <% end %>
+          <% end %>
+        </ol>
+      </div>
+      
     </div>
     <div class="col-9 container-right">
       <div id="informations" class="d-flex justify-content-center">
@@ -81,44 +82,72 @@
             </li>
           </ul>
         </div>
-        <div id="my-communities">
+        <div id="my-communities" class="cards-comumnities-profile">
           <div class="d-flex justify-content-around align-items-md-center">
-            <% current_user.communities.limit(6).each do |community|  %>
-              <%= link_to community_path(community), method: 'get' do %>
-                <div class="card-small-community shadow-sm p-1">
-                  <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
-                  <div class="card-small-body">
-                    <p class="mb-0"><%= community.name %></p>
+            <% count = 0  %>
+            <% count_2 = 0  %>
+            
+            <% current_user.communities.each do |community|  %>
+              <% if community.user_id == current_user.id %>
+                <% count = 1 %>
+                <% count_2 += 1  %>
+                <%= link_to community_path(community), method: 'get' do %>
+                  <div class="card-small-community shadow-sm">
+                    <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
+                    <div class="card-small-body">
+                      <p class="mb-0"><%= community.name %></p>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
+              <% if count_2 >= 6 %>
+                <% break %>
+              <% end  %>
+            <% end %>
+            <% if count == 0 %>
+              <p>Create your first community</p>
             <% end %>
           </div>
         </div>
         <div id="participate-in" class="inactive-tab">
           <div class="d-flex justify-content-around align-items-md-center">
-            <% current_user.memberships.limit(6).each do |membership|  %>
-              <%= link_to community_path(membership.community), method: 'get' do %>
-                <div class="card-small-community shadow-sm p-1">
-                  <%= cl_image_tag membership.community.photo.key, class: "card-small-img-top" %>       
-                  <div class="card-small-body justify-content-center">
-                    <p class=""><%= membership.community.name %></p>
+            <% count = 0  %>
+            <% count_2 = 0  %>
+            <% current_user.memberships.each do |membership|  %>
+              <% if membership.community.user_id != current_user.id %>
+                <% count = 1 %>
+                <% count_2 += 1  %>
+                <%= link_to community_path(membership.community), method: 'get' do %>
+                  <div class="card-small-community shadow-sm">
+                    <%= cl_image_tag membership.community.photo.key, class: "card-small-img-top" %>       
+                    <div class="card-small-body">
+                      <p class="mb-0"><%= membership.community.name %></p>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-            <% end %>     
+                <% end %>
+              <% end %>  
+              <% if count_2 >= 6 %>
+                <% break %>
+              <% end  %>
+            <% end %>
+            <% if count == 0 %>
+              <p>Join your first community</p>
+            <% end %>   
           </div>
         </div>
       </div>
 
 
       <div class="show-messages">
-        <h3>Stalking my communities</h3>
+        <h3>Stalking my communities and friends</h3>
         <% messages = [] %>
         <% current_user.memberships.limit(4).each do |membership|  %>
           <% messages.concat membership.community.messages.where("user_id != #{current_user.id}").order(created_at: :desc).limit(6) %>
         <% end %>
-        <% messages.sort_by(&:created_at).reverse! %>
+        <% current_user.following.each do |friend|  %>
+          <% messages.concat friend.messages.order(created_at: :desc).limit(1) %>
+        <%end %>
+        <% messages = messages.sort_by(&:created_at).reverse %>
         <% messages.each do |message| %>
           <div class="show-messages-text d-flex">
             <%= link_to user_path(message.user.id) do %>
@@ -129,11 +158,11 @@
                 <%= link_to user_path(message.user.id) do %>
                   <p><strong><%=message.user.first_name%></strong></p>
                 <% end %>
-                <p class="pl-1">posted at </p> 
+                <p class="pl-1 time-right1">posted at </p> 
                 <%= link_to community_path(message.community.id) do %>
                   <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
                 <% end %>
-                <p class="pl-1 time-right"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
+                <p class="pl-1 time-right1"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
               </div>
               <div>
                 <p class="message-content"><%= message.content.capitalize %></p>

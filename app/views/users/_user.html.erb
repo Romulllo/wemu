@@ -1,8 +1,8 @@
-<div data-user=<%= user.id %>>
+<div data-user=<%= user.id %> style='text-align:center;'>
 
   <% if current_user.is_following?(user.id) %>
-	  <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "btn btn-primary" %>
+	  <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "button-pink justify-content-sm-center" %>
   <% else %>
-		<%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "btn btn-primary" %>
+		<%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true, class: "button-pink justify-content-sm-center" %>
   <% end %>
 </div>
