@@ -52,7 +52,14 @@
     background: #f4f4f4;
     flex: 1;
     border-top-left-radius: 3px;
+    border-top-right-radius: 0px;
     border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 0px;
+  }
+
+  .btn-search {
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
   }
 }
 
@@ -104,4 +111,8 @@ h2 {
   img {
     object-fit: cover;
   }
+}
+
+.featurette-divider {
+  background-color: $wemu-green;
 }

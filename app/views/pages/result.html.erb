@@ -8,7 +8,7 @@
       <%= form_tag results_path, method: 'get' do %>
         <div id= "search-data" class="form-search search-data" data-communities_auto="<%= @communities_auto.to_json %>">
             <%= text_field_tag :query, nil, autocomplete: :off, class: "form-control search-input", placeholder: "Mastodon, rock,..." %>
-            <%= submit_tag "Search", class: "button-pink-search " %>
+            <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
         </div>
       <% end %>
       </p>

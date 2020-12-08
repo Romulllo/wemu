@@ -5,7 +5,7 @@
       <%= form_tag results_path, method: 'get' do %>
         <div id= "search-data" class="form-search search-data mb-5" data-communities_auto="<%= @communities_auto.to_json %>" data-users_auto="<%= @users_auto.to_json %>">
             <%= text_field_tag :query, nil, autocomplete: :off, class: "form-control search-input", placeholder: "Mastodon, rock,..." %>
-            <%= submit_tag "Search", class: "button-pink-search" %>
+            <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
         </div>
       <% end %>
     <p class='lead'>Or create your own community:</p>
@@ -50,11 +50,7 @@
       <p class="lead">On WeMu, you can search for communities or even create a new one! Communities are an amazing way to make new friends and to be updated about your favorites artists news!</p>
     </div>
     <div class="col-md-5">
-     <!--  <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 500x500"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text>
-      </svg> -->
       <%= image_tag "search.jpg", alt: "Le Wagon", width: 500, height: 500 %>
-
-
     </div>
   </div>
 

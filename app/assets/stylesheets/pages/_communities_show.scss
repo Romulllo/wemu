@@ -113,6 +113,8 @@ input.file {
 .btn-search {
   background-color: $wemu-green !important;
   border-color: $wemu-green !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 .btn-search:hover {
@@ -135,4 +137,9 @@ input.file {
   top: 60px;
   width: 100%;
   height: calc(100vh - 90px);
+}
+
+.form-search {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
 }

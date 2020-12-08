@@ -68,7 +68,7 @@
                 <%= form_tag community_path(@community), method: :get do %>
                   <%= text_field_tag :query,
                     params[:query],
-                    class: "form-control",
+                    class: "form-control form-search",
                     placeholder: "Find a music"
                   %>
                 <%= submit_tag "Search", class: "btn btn-primary btn-search" %>
