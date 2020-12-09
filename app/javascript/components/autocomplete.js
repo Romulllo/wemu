@@ -18,7 +18,6 @@ const autocompleteSearch = function() {
           suggest(matches);
       },
       onSelect: autocompleteSearch
-
     });
   }
 };
