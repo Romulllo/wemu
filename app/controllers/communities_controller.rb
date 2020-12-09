@@ -32,6 +32,10 @@ class CommunitiesController < ApplicationController
     @track_items = search_track(params[:query]) if params[:query]
   end
 
+  def edit
+    
+  end
+
   def update
     if @community.update(community_params)
       redirect_to community_path(@community)
