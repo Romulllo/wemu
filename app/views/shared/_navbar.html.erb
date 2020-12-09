@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-wemu" style="top: 0;">
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-wemu" style="top: 0;">
     <h3><%= link_to "WeMu", home_path, class: "nav-link" %></h3>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
@@ -15,8 +15,5 @@
         </li>
       </ul>
     </div>
-  <% else %>
-    <h3>WeMu</h3>
-  <% end %>
-</nav>
-
+  </nav>
+<% end %>

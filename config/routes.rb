@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#landing'
 
-  resources :communities do
+  resources :communities, only: [:new, :create, :index, :show, :destroy ] do
     resources :messages
     resources :memberships, only: [:create]
     get :create_playlist
