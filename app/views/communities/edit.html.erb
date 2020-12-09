@@ -1,7 +1,37 @@
-<h1> Page to edit a new community </h1>
-
-<%= simple_form_for @community do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<div class="row">
+  <div class="col-6">
+    <%if current_user == @community.user_id %>
+      <div class="cont">
+        <div class="left">
+          <div class="header">
+            <h1 class="animation a1">Edit your community!</h1>
+            <h3 class="animation a2">Please, take some time to choose an amazing name and also descripe what the community is about!</h3>
+          </div>
+          <div class="form">
+            <%= simple_form_for @community do |f| %>
+                <div class="form-inputs">
+                  <%= f.input :name %>
+                  <%= f.input :description %>
+                  <%= f.input :photo, as: :file %>
+                </div>
+                  <%= f.button :submit, class: "btn btn-primary button-green" %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+    <div class="cont">
+      <div class="left">
+        <div class="header">
+          <h1 class="animation a1">You can`t edit this community!</h1>
+          <%= link_to 'Back to search page', results_path, class: 'btn btn-primary button-green'%>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-6 pr-0">
+    <div class="right", style = "background-image: url(<%= image_path 'people_music.jpg' %>)" >
+    </div>
+  </div>
+</div>
