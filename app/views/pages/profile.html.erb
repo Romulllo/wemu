@@ -87,7 +87,7 @@
             <% count = 0  %>
             <% count_2 = 0  %>
             
-            <% current_user.communities.each do |community|  %>
+            <% current_user.communities.last(6).each do |community|  %>
               <% if community.user_id == current_user.id %>
                 <% count = 1 %>
                 <% count_2 += 1  %>
