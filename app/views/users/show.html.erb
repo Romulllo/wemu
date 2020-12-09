@@ -105,22 +105,23 @@
         <% @user.messages.order(created_at: :desc).limit(8).each do |message|  %>
           <% messages << message %>
         <% end %>
+        <% count = 0 %>
         <% unless current_user.following.where("following_id = #{@user.id}").empty? %>
           <% messages.each do |message| %>
             <div class="show-messages-text d-flex">
               <%= link_to user_path(message.user.id) do %>
                 <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
               <% end %>
-              <div>
+              <div class='px-2'>
                 <div class="messages-text-box d-flex">
                   <%= link_to user_path(message.user.id) do %>
                     <p><strong><%=message.user.first_name%></strong></p>
                   <% end %>
-                  <p class="pl-1">posted at </p> 
+                  <p class="pl-1 time-right1">posted at </p> 
                   <%= link_to community_path(message.community.id) do %>
                     <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
                   <% end %>
-                  <p class="pl-1 time-right"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
+                  <p class="pl-1 time-right1"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
                 </div>
                 <div>
                   <p class="message-content"><%= message.content.capitalize %></p>
@@ -129,6 +130,9 @@
             </div>
           <% end %>
         <% end %>
+        <% if count == 0 %>
+          <p> To stalk me you must follow my profile first. </p>
+        <% end %> 
       </div>
     </div>
   </div>
