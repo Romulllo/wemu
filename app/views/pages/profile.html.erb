@@ -17,10 +17,8 @@
 <div class="container container-cima justify-content-sm-center">
   <div class="row">
     <div class="col-3 container-left">
-      <div class="profile-picture big-profile-picture">
-        <% avatar_url = current_user.spotify_picture_url %>
-        <%= image_tag avatar_url %>
-      </div>
+      <% avatar_url = current_user.spotify_picture_url %>
+      <%= image_tag avatar_url, class:"profile-picture big-profile-picture" %>
       <div class="user-informations">
         <h1 class="user-name text-center"><%= current_user.first_name %></h1>
         <h3 class="user-song text-center">Just listened:
