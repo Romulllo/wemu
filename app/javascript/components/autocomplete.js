@@ -17,6 +17,8 @@ const autocompleteSearch = function() {
               if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
           suggest(matches);
       },
+      onSelect: autocompleteSearch
+
     });
   }
 };
