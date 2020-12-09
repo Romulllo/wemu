@@ -26,11 +26,13 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { autocompleteSearch } from '../components/autocomplete';
+import { autocompleteSearch_users } from '../components/autocomplete';
 import { toogleTab } from '../components/tabs_index';
 
 document.addEventListener('turbolinks:load', () => {
 	toogleTab();
   autocompleteSearch();
+  autocompleteSearch_users();
   // Call your functions here, e.g:
   // initSelect2();
 });
