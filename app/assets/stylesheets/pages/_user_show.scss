@@ -125,8 +125,7 @@ body {
 .link-tops {
   color: $wemu-white;
   &:hover {
-    color: pink;
-    background-color: purple;
+    color: $wemu-green !important;
     text-decoration: none;
   }
 }
@@ -150,11 +149,9 @@ body {
 }
 
 .card-small-community {
-  border: 4px solid $wemu-green;
-  background-color: $wemu-white;
-  border-radius: 5px;
+  background-color: $wemu-green;
+  border: none;
   p {
-    color: $wemu-green;
     max-height: 70px;
     overflow: hidden;
     white-space: nowrap;
@@ -175,7 +172,7 @@ body {
   width: 120px;
   text-align: center;
   p {
-    color: $wemu-green;
+    color: $wemu-white;
   }
 }
 
@@ -209,9 +206,6 @@ body {
   text-align: -webkit-center;
   padding-top: 30px;
 
-  img {
-    border: 2px solid #21836d;
-  }
   a {
     align-self: center;
   }
