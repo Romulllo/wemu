@@ -105,8 +105,7 @@
         <% @user.messages.order(created_at: :desc).limit(8).each do |message|  %>
           <% messages << message %>
         <% end %>
-        <% count = 0 %>
-        <% if count != 0 %>
+        <% if current_user.following.where("following_id = #{@user.id}").empty? %>
           <p> To stalk me you must follow my profile first </p>
         <% else %>
           <% unless current_user.following.where("following_id = #{@user.id}").empty? %>
