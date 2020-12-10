@@ -35,7 +35,7 @@
       </div>
       <iframe class="user-frame" src="https://open.spotify.com/embed/track/<%= @user.last_songs_identifiers[0] %>" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 
-      
+
       <div id="top-songs" class="">
         <h2 class="title-profile">Top Songs</h2>
           <ol class="list">
@@ -75,19 +75,18 @@
           <h3>Playlists</h3>
           <p>10</p>
         </div>
-        
-      </div>          
+
+      </div>
       <div>
       <hr class="featurette-divider">
 
-               
         <div id="my-communities" class="cards-comumnities-show">
-          <h3>Communities</h3>     
+          <h3>Communities</h3>
           <div class="d-flex justify-content-around align-items-md-center">
             <% @user.communities.limit(6).each do |community|  %>
               <%= link_to community_path(community), method: 'get' do %>
                 <div class="card-small-community shadow-sm">
-                  <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>       
+                  <%= cl_image_tag community.photo.key, class: "card-small-img-top" %>
                   <div class="card-small-body justify-content-center">
                     <p class="mb-0"><%= community.name %></p>
                   </div>
@@ -119,7 +118,7 @@
                     <%= link_to user_path(message.user.id) do %>
                       <p><strong><%=message.user.first_name%></strong></p>
                     <% end %>
-                    <p class="pl-1 time-right1">posted at </p> 
+                    <p class="pl-1 time-right1">posted at </p>
                     <%= link_to community_path(message.community.id) do %>
                       <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
                     <% end %>
@@ -156,4 +155,3 @@
 
 
 
-       
