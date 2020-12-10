@@ -42,7 +42,7 @@
         <h2 class="title-profile">Top Songs</h2>
           <ol class="list">
             <% @user.top_songs.each_with_index do |song, index| %>
-              <%= link_to @user.link_songs[index], class: "link-tops" do %>
+              <%= link_to @user.link_songs[index], class: "link-tops", target: :_blank do %>
               <li><strong><%= song %></strong></li>
               <% end %>
             <% end %>
@@ -52,7 +52,7 @@
         <h2 class="title-profile">Top Artists</h2>
         <ol class="list">
           <% @user.top_artists.each_with_index do |artist, index| %>
-            <%= link_to @user.link_artists[index], class: "link-tops" do %>
+            <%= link_to @user.link_artists[index], class: "link-tops", target: :_blank do %>
             <li><strong><%= artist %></strong></li>
             <% end %>
           <% end %>
@@ -106,33 +106,34 @@
           <% messages << message %>
         <% end %>
         <% count = 0 %>
-        <% unless current_user.following.where("following_id = #{@user.id}").empty? %>
-          <% messages.each do |message| %>
-            <div class="show-messages-text d-flex">
-              <%= link_to user_path(message.user.id) do %>
-                <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
-              <% end %>
-              <div class='px-2'>
-                <div class="messages-text-box d-flex">
-                  <%= link_to user_path(message.user.id) do %>
-                    <p><strong><%=message.user.first_name%></strong></p>
-                  <% end %>
-                  <p class="pl-1 time-right1">posted at </p> 
-                  <%= link_to community_path(message.community.id) do %>
-                    <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
-                  <% end %>
-                  <p class="pl-1 time-right1"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
-                </div>
-                <div>
-                  <p class="message-content"><%= message.content.capitalize %></p>
+        <% if count != 0 %>
+          <p> To stalk me you must follow my profile first </p>
+        <% else %>
+          <% unless current_user.following.where("following_id = #{@user.id}").empty? %>
+            <% messages.each do |message| %>
+              <div class="show-messages-text d-flex">
+                <%= link_to user_path(message.user.id) do %>
+                  <%= image_tag message.user.spotify_picture_url, alt: "spotify", class: "container-messages-profile"%>
+                <% end %>
+                <div class='px-2'>
+                  <div class="messages-text-box d-flex">
+                    <%= link_to user_path(message.user.id) do %>
+                      <p><strong><%=message.user.first_name%></strong></p>
+                    <% end %>
+                    <p class="pl-1 time-right1">posted at </p> 
+                    <%= link_to community_path(message.community.id) do %>
+                      <p class="pl-1"><strong><%=message.community.name%> community</strong></p>
+                    <% end %>
+                    <p class="pl-1 time-right1"> (<%=message.created_at.strftime("%d/%m/%Y, %I:%M%p")%>)</p>
+                  </div>
+                  <div>
+                    <p class="message-content"><%= message.content.capitalize %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
-        <% if count == 0 %>
-          <p> To stalk me you must follow my profile first. </p>
-        <% end %> 
       </div>
     </div>
   </div>
@@ -144,7 +145,7 @@
     <h2 class="title-profile text-center">Last Albums</h2>
     <div class="row justify-content-sm-center ">
       <% @user.last_albums.each_with_index do |album, index| %>
-        <%= link_to @user.link_albums[index] do %>
+        <%= link_to @user.link_albums[index], target: :_blank do %>
           <div class="img-shaking col mb-2 p-2">
             <%= image_tag album %>
           </div>
