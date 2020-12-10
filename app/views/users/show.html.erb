@@ -26,9 +26,9 @@
         <div data-user=<%= @user.id%> class="text-center">
           <% if @user != current_user %>
             <% if current_user.is_following?(@user.id) %>
-              <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true, class: "button-pink justify-content-sm-center" %>
+              <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, class: "button-pink justify-content-sm-center" %>
             <% else %>
-              <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true,class: "button-pink justify-content-sm-center" %>
+              <%= link_to "Follow", follow_user_path(@user.id), method: :post, class: "button-pink justify-content-sm-center" %>
             <% end %>
           <% end %>
         </div>
@@ -80,6 +80,8 @@
         
       </div>          
       <div>
+      <hr class="featurette-divider">
+
                
         <div id="my-communities" class="cards-comumnities-show">
           <h3>Communities</h3>     
