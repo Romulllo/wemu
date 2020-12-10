@@ -183,6 +183,7 @@ body {
 
 #informations {
   text-align-last: center;
+  padding-top: 20px;
 }
 
 .container-messages-profile {
@@ -198,7 +199,9 @@ body {
   padding-top: 30px;
 
   h3 {
+    padding-top: 30px;
     font-weight: bold;
+    padding-bottom: 20px;
   }
 }
 
@@ -242,4 +245,8 @@ body {
     text-decoration: none;
   }
  }
+}
+
+.featurette-divider {
+  background-color: $wemu-green;
 }

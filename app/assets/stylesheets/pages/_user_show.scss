@@ -189,7 +189,7 @@ body {
   padding-top: 100px;
   h3 {
     font-weight: bold;
-    padding-bottom: 80px;
+    padding-bottom: 20px;
   }
 }
 
@@ -210,7 +210,9 @@ body {
     align-self: center;
   }
   h3 {
+    padding-top: 30px;
     font-weight: bold;
+    padding-bottom: 20px;
   }
 }
 
@@ -240,4 +242,8 @@ body {
 .message-content {
   font-size: 15px;
   color: $wemu-green;
+}
+
+.featurette-divider {
+  background-color: $wemu-green;
 }
