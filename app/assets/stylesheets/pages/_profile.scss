@@ -172,8 +172,13 @@ body {
 .card-small-body {
   width: 120px;
   text-align: center;
+
   p {
     color: $wemu-white;
+  }
+
+  p:hover {
+    color: black;
   }
 }
 
@@ -238,13 +243,13 @@ body {
 }
 
 #participate-in {
- a{
-  color: $wemu-white;
-  &:hover {
-    color: $wemu-green !important;
-    text-decoration: none;
+  a {
+    color: $wemu-white;
+    &:hover {
+      color: $wemu-green !important;
+      text-decoration: none;
+    }
   }
- }
 }
 
 .featurette-divider {
