@@ -9,6 +9,7 @@ body {
   background: linear-gradient(rgba(200, 200, 0, 0.5), rgba(0, 0, 0, 0.5));
   .img-medium {
     height: 300px;
+    width: 100%;
   }
 }
 
@@ -233,4 +234,14 @@ body {
   font-size: 15px;
   color: $wemu-green;
   text-align: start;
+}
+
+#participate-in {
+ a{
+  color: $wemu-white;
+  &:hover {
+    color: $wemu-green !important;
+    text-decoration: none;
+  }
+ }
 }
