@@ -1,7 +1,7 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 2.5), rgba(0, 0, 0, 0.5)), url('<%= image_path 'back_and_white.jpg'%>');">
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 1.5), rgba(0, 0, 0, 0.3)), url('<%= image_path 'back_and_white.jpg'%>');">
   <div class="banner-content text-center">
     <h1>WeMu</h1>
-    <p>Search for communities and friends based on your music taste!</p>
+    <p>Find communities and friends based on your music taste!</p>
       <%= form_tag results_path, method: 'get' do %>
         <div id= "search-data" class="form-search search-data mb-5" data-communities_auto="<%= @communities_auto.to_json %>">
             <%= text_field_tag :query, nil, autocomplete: :off, class: "form-control search-input", placeholder: "Mastodon, rock,..." %>
@@ -33,7 +33,7 @@
       <div class="col-lg-4">
         <i class="fas fa-user-alt mb-3", style= "color:#21836d;" ></i>
         <h2>Profile</h2>
-        <h5>Check yours oyr anyonelse's profile, with the top artists and songs</h5>
+        <h5>Check yours or anyone else's profile, with their top artists and songs</h5>
         <p><a class="btn btn-secondary button-green mt-3" href="#section3" role="button">View details »</a></p>
       </div>
     </div>
@@ -44,10 +44,10 @@
   <div class="row featurette ">
     <div class="col-md-7">
       <h2 class="featurette-heading">Search</h2>
-      <p class="lead">On WeMu, you can search for communities or even create a new one! Communities are an amazing way to make new friends and to be updated about your favorites artists news!</p>
+      <p class="lead">On WeMu, you can search for communities: From Samba to Heavy Metal, from Coding to Gaming. Didn't find one? Create one yourself! </p>
     </div>
     <div class="col-md-5">
-      <%= image_tag "search.jpg", alt: "Le Wagon", width: 400, height: 400 %>
+      <%= image_tag "search.jpg", alt: "Le Wagon", width: 400, height: 300 %>
     </div>
   </div>
 
@@ -56,10 +56,10 @@
   <div class="row featurette">
     <div class="col-md-5 order-md-2">
       <h2 class="featurette-heading">The community</h2>
-      <p class="lead "> What if you could just join a community, check its members and even list to its playlist?</p>
+      <p class="lead "> What if you could just join a community, check its members and even list to its playlist?  Communities are an amazing way to make new friends and to be updated about your favorites artists news!</p>
     </div>
     <div class="col-md-7 order-md-1">
-     <%= image_tag "Community 1.jpg", alt: "Le Wagon", width: 400, height: 400 %>
+     <%= image_tag "Community 1.jpg", alt: "Le Wagon", width: 400, height: 300 %>
     </div>
   </div>
 
@@ -71,7 +71,7 @@
       <p class="lead">Take some time to have a look at your profile and also from other people from the communities you are part of! You will be able to find amazing songs based on the taste you want!</p>
     </div>
     <div class="col-md-5">
-      <%= image_tag "profile.jpg", alt: "Le Wagon", width: 400, height: 400 %>
+      <%= image_tag "mlkin2.jpg", alt: "Le Wagon", width: 400, height: 300 %>
     </div>
   </div>
 
