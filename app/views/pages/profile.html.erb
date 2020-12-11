@@ -139,7 +139,7 @@
 
 
       <div class="show-messages">
-        <h3>Stalking the communities I created and people I follow</h3>
+        <h3>Stalking my communities and people I follow</h3>
         <% messages = [] %>
         <% current_user.memberships.limit(4).each do |membership|  %>
           <% messages.concat membership.community.messages.where("user_id != #{current_user.id}").order(created_at: :desc).limit(6) %>
