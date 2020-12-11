@@ -30,10 +30,10 @@
                   <div class='col-sm'>
                     <%= link_to 'Add Playlist to Spotify', '#', class: 'btn btn-primary button-green' %>
                   </div>
-                <% end %>              
+                <% end %>
                 <% if @community.user_id == current_user.id %>
                 <div class='col-sm'>
-                  <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>        
+                  <%= link_to 'Delete Community', community_path(@community), method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-primary button-destroy'%>
                 </div>
                 <% end %>
               </div>
