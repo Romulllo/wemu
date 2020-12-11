@@ -3,7 +3,11 @@ class Community < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :memberships, dependent: :delete_all
   has_many :users, through: :memberships
+  
   validates :photo, presence: true
+  validates :name, presence: true
+  validates :description, presence: true
+
   has_one_attached :photo, dependent: :destroy
 
 
