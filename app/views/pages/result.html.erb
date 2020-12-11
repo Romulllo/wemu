@@ -40,7 +40,7 @@
                       <% end %>
                     </div>
                     <div>
-                      <small class="members-text">Has created <%= profile.communities.count%> communities </small> <br>
+                      <small class="members-text">Has created <%= Community.where(user_id: profile).count%> communities </small> <br>
                       <small class="members-text">Has joined <%= Membership.where(user:profile).count%> communities </small>
                     </div>
                   </div>
