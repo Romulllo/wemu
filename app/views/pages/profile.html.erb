@@ -7,7 +7,11 @@
         <% count = 0 %>
       <% end  %>
       <div class="col-2 m-0 p-0 w-100">
-        <%= image_tag current_user.link_album_top_artists[count], class: "img-medium" %>
+        <% if length = 0 %>
+          <p>  We are very sorry =/, we couldn' get this data.<br> Maybe you aren't using Spotify recently </p>
+        <% else %>
+          <%= image_tag current_user.link_album_top_artists[count], class: "img-medium" %>
+        <% end %>
       </div>
       <% count += 1 %>
     <% end %>
