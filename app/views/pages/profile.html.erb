@@ -1,13 +1,13 @@
 <div class='banner-profile d-flex'>
   <div class="row">
     <% count = 0 %>
-    <% length = current_user.link_album_top_artists.size %>
+    <% top_artists_size = current_user.link_album_top_artists.size %>
     <% 6.times do  %>
-      <% if count >= length %>
+      <% if count >= top_artists_size %>
         <% count = 0 %>
       <% end  %>
       <div class="col-2 m-0 p-0 w-100">
-        <% if length = 0 %>
+        <% if top_artists_size == 0 %>
           <p>  We are very sorry =/, we couldn' get this data.<br> Maybe you aren't using Spotify recently </p>
         <% else %>
           <%= image_tag current_user.link_album_top_artists[count], class: "img-medium" %>
